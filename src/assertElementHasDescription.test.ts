@@ -7,10 +7,16 @@ it('should not pass if element has no description', () => {
   `)
 
   const button = getByRole('button', { name: 'Move to trash' })
-  const { pass, actualDescription } = assertElementHasDescription(button)
+  const result = assertElementHasDescription(button)
 
-  expect(pass).toBe(false)
-  expect(actualDescription).toBe('')
+  expect(result).toEqual({
+    pass: false,
+    message: 'Expected the <button> element to have an accessible description.',
+    negatedMessage:
+      'Expected the <button> element not to have any accessible descriptions, but received "".',
+    expected: '',
+    received: '',
+  })
 })
 
 it('should pass if element has any description when no `expectedDescription` provided', () => {
@@ -24,10 +30,10 @@ it('should pass if element has any description when no `expectedDescription` pro
   `)
 
   const button = getByRole('button', { name: 'Move to trash' })
-  const { pass, actualDescription } = assertElementHasDescription(button)
+  const { pass, received } = assertElementHasDescription(button)
 
   expect(pass).toBe(true)
-  expect(actualDescription).toBe(actual)
+  expect(received).toBe(actual)
 })
 
 it('should pass if element has the `expectedDescription`', () => {
@@ -41,13 +47,10 @@ it('should pass if element has the `expectedDescription`', () => {
   `)
 
   const button = getByRole('button', { name: 'Move to trash' })
-  const { pass, actualDescription } = assertElementHasDescription(
-    button,
-    actual,
-  )
+  const { pass, received } = assertElementHasDescription(button, actual)
 
   expect(pass).toBe(true)
-  expect(actualDescription).toBe(actual)
+  expect(received).toBe(actual)
 })
 
 it('should not pass if expected and actual descriptions are not equal', () => {
@@ -61,13 +64,20 @@ it('should not pass if expected and actual descriptions are not equal', () => {
   `)
 
   const button = getByRole('button', { name: 'Move to trash' })
-  const { pass, actualDescription } = assertElementHasDescription(
+  const result = assertElementHasDescription(
     button,
     'Something different than actual description.',
   )
 
-  expect(pass).toBe(false)
-  expect(actualDescription).toBe(actual)
+  expect(result).toEqual({
+    pass: false,
+    message:
+      'Expected the <button> element to have accessible description "Something different than actual description.", but received "Items in the trash will be permanently removed after 30 days.".',
+    negatedMessage:
+      'Expected the <button> element not to have accessible description "Something different than actual description.".',
+    expected: 'Something different than actual description.',
+    received: 'Items in the trash will be permanently removed after 30 days.',
+  })
 })
 
 it('should support regex', () => {
@@ -81,13 +91,13 @@ it('should support regex', () => {
   `)
 
   const button = getByRole('button', { name: 'Move to trash' })
-  const { pass, actualDescription } = assertElementHasDescription(
+  const { pass, received } = assertElementHasDescription(
     button,
     /removed after 30 days/,
   )
 
   expect(pass).toBe(true)
-  expect(actualDescription).toBe(actual)
+  expect(received).toBe(actual)
 })
 
 it('should work with the link title attribute', () => {
@@ -98,10 +108,10 @@ it('should work with the link title attribute', () => {
   `)
 
   const link = getByRole('link')
-  const { pass, actualDescription } = assertElementHasDescription(link)
+  const { pass, received } = assertElementHasDescription(link)
 
   expect(pass).toBe(true)
-  expect(actualDescription).toBe('A link to start over')
+  expect(received).toBe('A link to start over')
 })
 
 it('should work with multiple aria-describedby ids', () => {
@@ -116,10 +126,10 @@ it('should work with multiple aria-describedby ids', () => {
   `)
 
   const element = getByText('Target')
-  const { pass, actualDescription } = assertElementHasDescription(element)
+  const { pass, received } = assertElementHasDescription(element)
 
   expect(pass).toBe(true)
-  expect(actualDescription).toBe(
+  expect(received).toBe(
     'First description Second description Third description',
   )
 })

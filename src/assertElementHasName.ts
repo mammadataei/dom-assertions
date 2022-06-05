@@ -1,8 +1,5 @@
 import { computeAccessibleName } from 'dom-accessibility-api'
-
-function elementToString(element: HTMLElement) {
-  return `<${element.tagName.toLowerCase()}>`
-}
+import { elementToString } from './helpers'
 
 export function assertElementHasName(
   htmlElement: HTMLElement,

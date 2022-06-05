@@ -1,23 +1,33 @@
 import { computeAccessibleDescription } from 'dom-accessibility-api'
+import { elementToString } from './helpers'
 
 export function assertElementHasDescription(
   htmlElement: HTMLElement,
   expectedDescription?: string | RegExp,
 ) {
   const actualDescription = computeAccessibleDescription(htmlElement)
+  const elementName = elementToString(htmlElement)
 
   if (!expectedDescription) {
     return {
       pass: actualDescription !== '',
-      actualDescription,
+      message: `Expected the ${elementName} element to have an accessible description.`,
+      negatedMessage: `Expected the ${elementName} element not to have any accessible descriptions, but received "${actualDescription}".`,
+      expected: '',
+      received: actualDescription,
     }
   }
 
+  const pass =
+    expectedDescription instanceof RegExp
+      ? expectedDescription.test(actualDescription)
+      : actualDescription === expectedDescription
+
   return {
-    pass:
-      expectedDescription instanceof RegExp
-        ? expectedDescription.test(actualDescription)
-        : actualDescription === expectedDescription,
-    actualDescription,
+    pass,
+    message: `Expected the ${elementName} element to have accessible description "${expectedDescription}", but received "${actualDescription}".`,
+    negatedMessage: `Expected the ${elementName} element not to have accessible description "${expectedDescription}".`,
+    expected: expectedDescription,
+    received: actualDescription,
   }
 }
