@@ -1,6 +1,17 @@
 import { render } from '../testing'
 import { assertElementHasDescription } from './assertElementHasDescription'
 
+it('should check the element', () => {
+  // @ts-expect-error - in case the client code is using javascript
+  expect(assertElementHasDescription(document)).toEqual({
+    pass: false,
+    message: expect.any(String),
+    negatedMessage: expect.any(String),
+    expected: 'HTMLElement or SVGElement',
+    received: expect.any(String),
+  })
+})
+
 it('should not pass if element has no description', () => {
   const { getByRole } = render(`
     <button>Move to trash</button>

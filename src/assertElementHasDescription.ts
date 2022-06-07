@@ -1,10 +1,16 @@
 import { computeAccessibleDescription } from 'dom-accessibility-api'
+import { assertIsHTMLOrSVGElement } from './assertIsHTMLOrSVGElement'
 import { elementToString } from './helpers'
 
 export function assertElementHasDescription(
   htmlElement: HTMLElement,
   expectedDescription?: string | RegExp,
 ) {
+  const elementCheckResult = assertIsHTMLOrSVGElement(htmlElement)
+  if (!elementCheckResult.pass) {
+    return elementCheckResult
+  }
+
   const actualDescription = computeAccessibleDescription(htmlElement)
   const elementName = elementToString(htmlElement)
 
