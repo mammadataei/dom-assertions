@@ -1,4 +1,4 @@
-import { render } from '../testing'
+import { render } from '../../testing'
 import { assertElementHasDescription } from './assertElementHasDescription'
 
 it('should check the element', () => {

@@ -1,5 +1,5 @@
-import { assertIsHTMLOrSVGElement } from './assertIsHTMLOrSVGElement'
-import { elementToString } from './helpers'
+import { assertIsHTMLOrSVGElement } from '../assertIsHTMLOrSVGElement/assertIsHTMLOrSVGElement'
+import { elementToString } from '../helpers'
 
 const FORM_TAGS = ['select', 'textarea']
 

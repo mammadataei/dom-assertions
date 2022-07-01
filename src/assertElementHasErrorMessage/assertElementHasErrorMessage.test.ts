@@ -1,5 +1,5 @@
 import { assertElementHasErrorMessage } from './assertElementHasErrorMessage'
-import { render } from '../testing'
+import { render } from '../../testing'
 import { expect } from 'vitest'
 
 it('should check the element', () => {

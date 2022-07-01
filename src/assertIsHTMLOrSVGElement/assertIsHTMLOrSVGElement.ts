@@ -1,4 +1,4 @@
-import { elementToString } from './helpers'
+import { elementToString } from '../helpers'
 
 export function assertIsHTMLOrSVGElement(element: HTMLElement | SVGElement) {
   if (element && element.ownerDocument && element.ownerDocument.defaultView) {

@@ -1,4 +1,4 @@
-import { render } from '../testing'
+import { render } from '../../testing'
 import { assertElementIsRequired } from './assertElementIsRequired'
 import { expect } from 'vitest'
 

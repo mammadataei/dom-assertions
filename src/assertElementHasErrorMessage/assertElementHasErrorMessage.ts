@@ -1,5 +1,5 @@
-import { assertIsHTMLOrSVGElement } from './assertIsHTMLOrSVGElement'
-import { elementToString, normalize } from './helpers'
+import { assertIsHTMLOrSVGElement } from '../assertIsHTMLOrSVGElement/assertIsHTMLOrSVGElement'
+import { elementToString, normalize } from '../helpers'
 
 export function assertElementHasErrorMessage(
   htmlElement: HTMLElement,

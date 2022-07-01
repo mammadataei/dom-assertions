@@ -1,6 +1,6 @@
 import { computeAccessibleName } from 'dom-accessibility-api'
-import { assertIsHTMLOrSVGElement } from './assertIsHTMLOrSVGElement'
-import { elementToString } from './helpers'
+import { assertIsHTMLOrSVGElement } from '../assertIsHTMLOrSVGElement/assertIsHTMLOrSVGElement'
+import { elementToString } from '../helpers'
 
 export function assertElementHasName(
   htmlElement: HTMLElement,
