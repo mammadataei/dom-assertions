@@ -1,5 +1,5 @@
 {
-  "name": "dom-assertions-monorepo",
+  "name": "@dom-assertions/monorepo",
   "version": "0.0.0",
   "private": true,
   "author": "Mohammad Ataei <mammadataei@gmail.com>",
