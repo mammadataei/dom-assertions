@@ -1,0 +1,48 @@
+{
+  "name": "dom-assertions",
+  "version": "0.1.0",
+  "description": "Accessible DOM assertions for testing user interfaces.",
+  "author": "Mohammad Ataei <mammadataei@gmail.com>",
+  "license": "MIT",
+  "keywords": [
+    "testing",
+    "dom",
+    "assertions",
+    "accessible",
+    "accessibility"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mammadataei/dom-assertions/",
+    "directory": "packages/dom-assertions"
+  },
+  "bugs": {
+    "url": "https://github.com/mammadataei/dom-assertions/issues"
+  },
+  "main": "dist/index.js",
+  "module": "dist/index.mjs",
+  "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "require": "./dist/index.js",
+      "import": "./dist/index.mjs",
+      "types": "./dist/index.d.ts"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsc && tsup",
+    "test": "vitest",
+    "test:coverage": "vitest run --coverage",
+    "format": "prettier --write .",
+    "lint": "eslint --ext .js,.jsx,.ts,.tsx ."
+  },
+  "devDependencies": {
+    "@testing-library/dom": "^8.14.0"
+  },
+  "dependencies": {
+    "dom-accessibility-api": "^0.5.14"
+  }
+}
