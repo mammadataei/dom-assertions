@@ -39,9 +39,6 @@
     "format": "prettier --write .",
     "lint": "eslint --ext .js,.jsx,.ts,.tsx ."
   },
-  "devDependencies": {
-    "@testing-library/dom": "^8.14.0"
-  },
   "dependencies": {
     "dom-accessibility-api": "^0.5.14"
   }
