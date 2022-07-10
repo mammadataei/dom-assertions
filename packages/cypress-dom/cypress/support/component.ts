@@ -4,6 +4,8 @@ import { createRoot, Root } from 'react-dom/client'
 import type { ReactNode } from 'react'
 import type { MountOptions } from 'cypress/react/dist/mount'
 
+import '../../src/index'
+
 declare global {
   namespace Cypress {
     interface Chainable {

@@ -7,5 +7,6 @@ export default defineConfig({
       bundler: 'vite',
     },
     specPattern: '**/*.cy.{ts,tsx}',
+    video: false,
   },
 })
