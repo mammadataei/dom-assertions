@@ -1,5 +1,5 @@
 import { assertElementHasDescription } from 'dom-assertions'
-import { AssertionFunction } from '../types'
+import { createAssertion } from '../utils'
 
 declare global {
   namespace Chai {
@@ -16,16 +16,17 @@ declare global {
   }
 }
 
-const description: AssertionFunction = function (expected?: string | RegExp) {
-  const result = assertElementHasDescription(this._obj, expected)
+export const description = createAssertion(
+  'description',
+  function (expected?: string | RegExp) {
+    const result = assertElementHasDescription(this._obj, expected)
 
-  this.assert(
-    result.pass,
-    result.message,
-    result.negatedMessage,
-    result.expected,
-    result.received,
-  )
-}
-
-export { description }
+    this.assert(
+      result.pass,
+      result.message,
+      result.negatedMessage,
+      result.expected,
+      result.received,
+    )
+  },
+)
