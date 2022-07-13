@@ -1,5 +1,5 @@
 import { assertElementHasName } from 'dom-assertions'
-import { createAssertion } from '../utils'
+import { createAssertionMethod } from '../utils'
 
 declare global {
   namespace Chai {
@@ -17,7 +17,7 @@ declare global {
   }
 }
 
-export const name = createAssertion(
+export const name = createAssertionMethod(
   'name',
   function (expected?: string | RegExp) {
     const result = assertElementHasName(this._obj, expected)

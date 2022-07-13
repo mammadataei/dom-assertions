@@ -1,9 +1,27 @@
-import { AssertionFunction } from './types'
+import { AssertionFunction, AssertionType, ChaiPlugin } from './types'
 
-function createAssertion(name: string, fn: AssertionFunction): Chai.ChaiPlugin {
-  return function (chia: Chai.ChaiStatic) {
+export function createAssertionMethod(
+  name: string,
+  fn: AssertionFunction,
+): ChaiPlugin {
+  function plugin(chia: Chai.ChaiStatic) {
     chia.Assertion.addMethod(name, fn)
   }
+
+  plugin.type = 'method' as AssertionType
+
+  return plugin
 }
 
-export { createAssertion }
+export function createAssertionProperty(
+  name: string,
+  fn: AssertionFunction,
+): ChaiPlugin {
+  function plugin(chia: Chai.ChaiStatic) {
+    chia.Assertion.addProperty(name, fn)
+  }
+
+  plugin.type = 'property' as AssertionType
+
+  return plugin
+}

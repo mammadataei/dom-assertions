@@ -1,5 +1,5 @@
 import { assertElementHasErrorMessage } from 'dom-assertions'
-import { createAssertion } from '../utils'
+import { createAssertionMethod } from '../utils'
 
 declare global {
   namespace Chai {
@@ -16,7 +16,7 @@ declare global {
   }
 }
 
-export const errorMessage = createAssertion(
+export const errorMessage = createAssertionMethod(
   'errorMessage',
   function (expected?: string | RegExp) {
     const result = assertElementHasErrorMessage(this._obj, expected)
