@@ -81,6 +81,14 @@ declare global {
 Object.entries(Assertions).forEach(([assertionName, assertionPlugin]) => {
   chai.use(assertionPlugin)
 
+  if (assertionPlugin.type === 'method') {
+    return overwriteAssertionMethod(assertionName)
+  }
+
+  return overwriteAssertionProperty(assertionName)
+})
+
+function overwriteAssertionMethod(assertionName: string): void {
   chai.use((chai) => {
     chai.Assertion.overwriteMethod(assertionName, (_super, ...args) => {
       return function (this: Chai.AssertionStatic) {
@@ -91,7 +99,31 @@ Object.entries(Assertions).forEach(([assertionName, assertionPlugin]) => {
       }
     })
   })
-})
+}
+
+declare global {
+  namespace Chai {
+    interface AssertionStatic {
+      // Temporarily fixing the @types/chai-dom issue
+      // TODO: find a better solution to prevent changing Chai namespace globally
+      overwriteProperty(
+        name: string,
+        method: (this: AssertionStatic, ...args: any[]) => any,
+      ): void
+    }
+  }
+}
+
+function overwriteAssertionProperty(assertionName: string): void {
+  chai.use((chai) => {
+    chai.Assertion.overwriteProperty(assertionName, (_super) => {
+      return function (this: Chai.AssertionStatic) {
+        this._obj = unwrapElement(this)
+        _super.apply(this)
+      }
+    })
+  })
+}
 
 function unwrapElement(context: Chai.AssertionStatic) {
   return context._obj[0]
