@@ -60,8 +60,8 @@ declare global {
        * @param chainer
        * @param expected (optional) expected name
        * @example
-       *  cy.get('#id').should('not.have.name')
-       *  cy.get('#id').should('not.have.name', 'expected name')
+       *  cy.get('#id').should('have.name')
+       *  cy.get('#id').should('have.name', 'expected name')
        */
       (chainer: 'have.name', expected?: string | RegExp): Chainable<Subject>
 
