@@ -1,4 +1,4 @@
-import { render } from '../../testing'
+import { render } from '../../../testing'
 
 it('asserts element has error message', () => {
   const { getByLabelText } = render(`

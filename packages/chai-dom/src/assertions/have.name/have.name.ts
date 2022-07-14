@@ -1,5 +1,5 @@
 import { assertElementHasName } from 'dom-assertions'
-import { createAssertionMethod } from '../utils'
+import { createAssertionMethod } from '../../utils'
 
 declare global {
   namespace Chai {

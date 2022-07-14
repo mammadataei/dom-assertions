@@ -1,4 +1,4 @@
-import { render } from '../../testing'
+import { render } from '../../../testing'
 
 it('asserts element has name', () => {
   const { getByRole } = render(`

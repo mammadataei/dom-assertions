@@ -1,4 +1,4 @@
-import { render } from '../../testing'
+import { render } from '../../../testing'
 
 it('asserts element is required', () => {
   const { getByRole } = render(`

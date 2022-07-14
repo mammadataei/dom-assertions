@@ -1,5 +1,5 @@
 import { assertElementIsRequired } from 'dom-assertions'
-import { createAssertionProperty } from '../utils'
+import { createAssertionProperty } from '../../utils'
 
 declare global {
   namespace Chai {
