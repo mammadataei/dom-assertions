@@ -1,5 +1,5 @@
 import { assertIsHTMLOrSVGElement } from '../assertIsHTMLOrSVGElement/assertIsHTMLOrSVGElement'
-import { elementToString } from '../helpers'
+import { elementToString, getElementTagName } from '../helpers'
 
 const FORM_TAGS = ['select', 'textarea']
 
@@ -47,12 +47,15 @@ export function assertElementIsRequired(htmlElement: HTMLElement) {
 }
 
 function isRequiredOnFormTagsExceptInput(element: HTMLElement) {
-  return FORM_TAGS.includes(getTag(element)) && element.hasAttribute('required')
+  return (
+    FORM_TAGS.includes(getElementTagName(element)) &&
+    element.hasAttribute('required')
+  )
 }
 
 function isRequiredOnSupportedInput(element: HTMLElement) {
   return (
-    getTag(element) === 'input' &&
+    getElementTagName(element) === 'input' &&
     element.hasAttribute('required') &&
     ((element.hasAttribute('type') &&
       !UNSUPPORTED_INPUT_TYPES.includes(element.getAttribute('type')!)) ||
@@ -64,12 +67,8 @@ function isElementRequiredByARIA(element: HTMLElement) {
   return (
     element.hasAttribute('aria-required') &&
     element.getAttribute('aria-required') === 'true' &&
-    (ARIA_FORM_TAGS.includes(getTag(element)) ||
+    (ARIA_FORM_TAGS.includes(getElementTagName(element)) ||
       (element.hasAttribute('role') &&
         SUPPORTED_ARIA_ROLES.includes(element.getAttribute('role')!)))
   )
-}
-
-function getTag(element: HTMLElement) {
-  return element.tagName && element.tagName.toLowerCase()
 }
