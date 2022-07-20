@@ -1,4 +1,5 @@
 export * from './have.description/have.description'
 export * from './have.errorMessage/have.errorMessage'
 export * from './have.name/have.name'
+export * from './be.invalid/be.invalid'
 export * from './be.required/be.required'
