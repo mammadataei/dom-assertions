@@ -90,6 +90,22 @@ declare global {
        *  cy.get('#id').should('not.be.required')
        */
       (chainer: 'not.be.required'): Chainable<Subject>
+
+      /**
+       * Asserts that the given element is invalid
+       * @param chainer
+       * @example
+       *  cy.get('#id').should('be.invalid')
+       */
+      (chainer: 'be.invalid'): Chainable<Subject>
+
+      /**
+       * Asserts that the given element is not invalid
+       * @param chainer
+       * @example
+       *  cy.get('#id').should('not.be.invalid')
+       */
+      (chainer: 'not.be.invalid'): Chainable<Subject>
     }
   }
 }

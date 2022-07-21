@@ -10,7 +10,7 @@ it('asserts element is required', () => {
   })
 })
 
-it('asserts element is not description', () => {
+it('asserts element is not required', () => {
   cy.render(<input type="text" />)
 
   cy.findByRole('textbox').as('input')
