@@ -23,6 +23,7 @@ Custom accessibility assertions for [Cypress](https://www.cypress.io/).
 
 ## Credits
 
-Special thanks to [ testing-library ](https://testing-library.com/) and
-[jest-dom](https://github.com/testing-library/jest-dom) maintainers for idea,
-inspiration and development of assertions functionality
+Special thanks to [testing-library](https://testing-library.com/) and
+[jest-dom](https://github.com/testing-library/jest-dom/blob/main/LICENSE)
+[contributors](https://github.com/testing-library/jest-dom/blob/main/README.md#contributors)
+for idea, inspiration and development of assertions functionality
