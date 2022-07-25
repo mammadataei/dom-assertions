@@ -32,3 +32,9 @@ pnpm add --save-dev dom-assertions
 - `assertElementIsInvalid`
 - `assertElementIsRequired`
 - `assertElementIsValid`
+
+## Credits
+
+Special thanks to [ testing-library ](https://testing-library.com/) and
+[jest-dom](https://github.com/testing-library/jest-dom) maintainers for idea,
+inspiration and development of assertions functionality
