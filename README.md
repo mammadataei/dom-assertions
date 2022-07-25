@@ -20,3 +20,9 @@ Custom accessibility assertions for [Chai](https://chaijs.com/).
 ### [@dom-assertions/cypress-dom](/packages/cypress-dom)
 
 Custom accessibility assertions for [Cypress](https://www.cypress.io/).
+
+## Credits
+
+Special thanks to [ testing-library ](https://testing-library.com/) and
+[jest-dom](https://github.com/testing-library/jest-dom) maintainers for idea,
+inspiration and development of assertions functionality
