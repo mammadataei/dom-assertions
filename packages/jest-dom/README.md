@@ -6,7 +6,7 @@
     height="80"
     width="80"
     alt="owl"
-    src="https://raw.githubusercontent.com/testing-library/jest-dom/main/other/owl.png"
+    src="https://raw.githubusercontent.com/testing-library/jest-dom/main/packages/jest-dom/assets/owl.png"
   />
 </a>
 
