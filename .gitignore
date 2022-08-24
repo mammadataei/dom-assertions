@@ -1,9 +1,8 @@
 node_modules
 coverage
 dist
-.DS_Store
 
-# these cause more harm than good
-# when working with contributors
-package-lock.json
-yarn.lock
+.DS_Store
+.idea
+
+*.log
