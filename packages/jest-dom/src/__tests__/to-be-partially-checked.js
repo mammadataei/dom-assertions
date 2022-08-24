@@ -1,8 +1,8 @@
-import {render} from './helpers/test-utils'
+import { render } from './helpers/test-utils'
 
 describe('.toBePartiallyChecked', () => {
   test('handles input checkbox with aria-checked', () => {
-    const {queryByTestId} = render(`
+    const { queryByTestId } = render(`
       <input type="checkbox" aria-checked="mixed" data-testid="checkbox-mixed" />
       <input type="checkbox" checked data-testid="checkbox-checked" />
       <input type="checkbox" data-testid="checkbox-unchecked" />
@@ -14,7 +14,7 @@ describe('.toBePartiallyChecked', () => {
   })
 
   test('handles input checkbox set as indeterminate', () => {
-    const {queryByTestId} = render(`
+    const { queryByTestId } = render(`
       <input type="checkbox" data-testid="checkbox-mixed" />
       <input type="checkbox" checked data-testid="checkbox-checked" />
       <input type="checkbox" data-testid="checkbox-unchecked" />
@@ -28,7 +28,7 @@ describe('.toBePartiallyChecked', () => {
   })
 
   test('handles element with role="checkbox"', () => {
-    const {queryByTestId} = render(`
+    const { queryByTestId } = render(`
       <div role="checkbox" aria-checked="mixed" data-testid="aria-checkbox-mixed" />
       <div role="checkbox" aria-checked="true" data-testid="aria-checkbox-checked" />
       <div role="checkbox" aria-checked="false" data-testid="aria-checkbox-unchecked" />
@@ -40,7 +40,7 @@ describe('.toBePartiallyChecked', () => {
   })
 
   test('throws when input checkbox is mixed but expected not to be', () => {
-    const {queryByTestId} = render(
+    const { queryByTestId } = render(
       `<input type="checkbox" aria-checked="mixed" data-testid="checkbox-mixed" />`,
     )
 
@@ -50,7 +50,7 @@ describe('.toBePartiallyChecked', () => {
   })
 
   test('throws when input checkbox is indeterminate but expected not to be', () => {
-    const {queryByTestId} = render(
+    const { queryByTestId } = render(
       `<input type="checkbox" data-testid="checkbox-mixed" />`,
     )
 
@@ -62,7 +62,7 @@ describe('.toBePartiallyChecked', () => {
   })
 
   test('throws when input checkbox is not checked but expected to be', () => {
-    const {queryByTestId} = render(
+    const { queryByTestId } = render(
       `<input type="checkbox" data-testid="checkbox-empty" />`,
     )
 
@@ -72,7 +72,7 @@ describe('.toBePartiallyChecked', () => {
   })
 
   test('throws when element with role="checkbox" is partially checked but expected not to be', () => {
-    const {queryByTestId} = render(
+    const { queryByTestId } = render(
       `<div role="checkbox" aria-checked="mixed" data-testid="aria-checkbox-mixed" />`,
     )
 
@@ -82,7 +82,7 @@ describe('.toBePartiallyChecked', () => {
   })
 
   test('throws when element with role="checkbox" is checked but expected to be partially checked', () => {
-    const {queryByTestId} = render(
+    const { queryByTestId } = render(
       `<div role="checkbox" aria-checked="true" data-testid="aria-checkbox-checked" />`,
     )
 
@@ -92,7 +92,7 @@ describe('.toBePartiallyChecked', () => {
   })
 
   test('throws when element with role="checkbox" is not checked but expected to be', () => {
-    const {queryByTestId} = render(
+    const { queryByTestId } = render(
       `<div role="checkbox" aria-checked="false" data-testid="aria-checkbox" />`,
     )
 
@@ -102,7 +102,7 @@ describe('.toBePartiallyChecked', () => {
   })
 
   test('throws when element with role="checkbox" has an invalid aria-checked attribute', () => {
-    const {queryByTestId} = render(
+    const { queryByTestId } = render(
       `<div role="checkbox" aria-checked="something" data-testid="aria-checkbox-invalid" />`,
     )
 
@@ -112,7 +112,7 @@ describe('.toBePartiallyChecked', () => {
   })
 
   test('throws when the element is not a checkbox', () => {
-    const {queryByTestId} = render(`<select data-testid="select"></select>`)
+    const { queryByTestId } = render(`<select data-testid="select"></select>`)
     expect(() =>
       expect(queryByTestId('select')).toBePartiallyChecked(),
     ).toThrowError(

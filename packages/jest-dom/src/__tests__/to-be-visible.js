@@ -1,9 +1,9 @@
-import {render} from './helpers/test-utils'
+import { render } from './helpers/test-utils'
 import document from './helpers/document'
 
 describe('.toBeVisible', () => {
   it('returns the visibility of an element', () => {
-    const {container} = render(`
+    const { container } = render(`
       <div>
         <header>
           <h1 style="display: none">Main title</h1>

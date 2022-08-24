@@ -1,7 +1,7 @@
-import {render} from './helpers/test-utils'
+import { render } from './helpers/test-utils'
 
 test('it should work as expected', () => {
-  const {queryByTestId} = render(`
+  const { queryByTestId } = render(`
     <select id="fruits" data-testid="select">
       <option value="">Select a fruit...</option>
       <option value="ananas">Ananas</option>
@@ -59,7 +59,7 @@ describe('with multiple select', () => {
       expect(subject.queryByTestId('select')).toHaveDisplayValue('Ananas'),
     ).toThrow()
 
-    Array.from(subject.queryByTestId('select').options).forEach(option => {
+    Array.from(subject.queryByTestId('select').options).forEach((option) => {
       option.selected = ['ananas', 'banana'].includes(option.value)
     })
 
@@ -87,7 +87,7 @@ describe('with multiple select', () => {
 })
 
 test('it should work with input elements', () => {
-  const {queryByTestId} = render(`
+  const { queryByTestId } = render(`
     <input type="text" data-testid="input" value="Luca" />
   `)
 
@@ -99,7 +99,7 @@ test('it should work with input elements', () => {
 })
 
 test('it should work with textarea elements', () => {
-  const {queryByTestId} = render(
+  const { queryByTestId } = render(
     '<textarea data-testid="textarea-example">An example description here.</textarea>',
   )
 
@@ -115,7 +115,7 @@ test('it should work with textarea elements', () => {
 })
 
 test('it should throw if element is not valid', () => {
-  const {queryByTestId} = render(`
+  const { queryByTestId } = render(`
     <div data-testid="div">Banana</div>
     <input type="radio" data-testid="radio" value="Something" />
     <input type="checkbox" data-testid="checkbox" />
@@ -154,7 +154,7 @@ test('it should throw if element is not valid', () => {
 })
 
 test('it should work with numbers', () => {
-  const {queryByTestId} = render(`
+  const { queryByTestId } = render(`
     <select data-testid="select">
       <option value="">1</option>
     </select>

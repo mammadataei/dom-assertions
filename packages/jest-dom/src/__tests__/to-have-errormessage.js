@@ -1,9 +1,9 @@
-import {render} from './helpers/test-utils'
+import { render } from './helpers/test-utils'
 
 // eslint-disable-next-line max-lines-per-function
 describe('.toHaveErrorMessage', () => {
   test('resolves for object with correct aria-errormessage reference', () => {
-    const {queryByTestId} = render(`
+    const { queryByTestId } = render(`
     <label for="startTime"> Please enter a start time for the meeting: </label>
     <input data-testid="startTime" type="text" aria-errormessage="msgID" aria-invalid="true" value="11:30 PM" >
     <span id="msgID" aria-live="assertive" style="visibility:visible"> Invalid time:  the time must be between 9:00 AM and 5:00 PM </span>
@@ -22,7 +22,7 @@ describe('.toHaveErrorMessage', () => {
   })
 
   test('works correctly on implicit invalid element', () => {
-    const {queryByTestId} = render(`
+    const { queryByTestId } = render(`
     <label for="startTime"> Please enter a start time for the meeting: </label>
     <input data-testid="startTime" type="text" aria-errormessage="msgID" aria-invalid value="11:30 PM" >
     <span id="msgID" aria-live="assertive" style="visibility:visible"> Invalid time:  the time must be between 9:00 AM and 5:00 PM </span>
@@ -41,7 +41,7 @@ describe('.toHaveErrorMessage', () => {
   })
 
   test('rejects for valid object', () => {
-    const {queryByTestId} = render(`
+    const { queryByTestId } = render(`
     <div id="errormessage">The errormessage</div>
     <div data-testid="valid" aria-errormessage="errormessage"></div>
     <div data-testid="explicitly_valid" aria-errormessage="errormessage" aria-invalid="false"></div>
@@ -63,7 +63,7 @@ describe('.toHaveErrorMessage', () => {
   })
 
   test('rejects for object with incorrect aria-errormessage reference', () => {
-    const {queryByTestId} = render(`
+    const { queryByTestId } = render(`
     <div id="errormessage">The errormessage</div>
     <div data-testid="invalid_id" aria-errormessage="invalid" aria-invalid="true"></div>
     `)
@@ -73,7 +73,7 @@ describe('.toHaveErrorMessage', () => {
   })
 
   test('handles invalid element without aria-errormessage', () => {
-    const {queryByTestId} = render(`
+    const { queryByTestId } = render(`
     <div id="errormessage">The errormessage</div>
     <div data-testid="without" aria-invalid="true"></div>
     `)
@@ -83,7 +83,7 @@ describe('.toHaveErrorMessage', () => {
   })
 
   test('handles valid element without aria-errormessage', () => {
-    const {queryByTestId} = render(`
+    const { queryByTestId } = render(`
     <div id="errormessage">The errormessage</div>
     <div data-testid="without"></div>
     `)
@@ -100,7 +100,7 @@ describe('.toHaveErrorMessage', () => {
   })
 
   test('handles multiple ids', () => {
-    const {queryByTestId} = render(`
+    const { queryByTestId } = render(`
     <div id="first">First errormessage</div>
     <div id="second">Second errormessage</div>
     <div id="third">Third errormessage</div>
@@ -124,7 +124,7 @@ describe('.toHaveErrorMessage', () => {
   })
 
   test('handles negative test cases', () => {
-    const {queryByTestId} = render(`
+    const { queryByTestId } = render(`
     <div id="errormessage">The errormessage</div>
     <div data-testid="target" aria-errormessage="errormessage" aria-invalid="true"></div>
     `)
@@ -145,7 +145,7 @@ describe('.toHaveErrorMessage', () => {
   })
 
   test('normalizes whitespace', () => {
-    const {queryByTestId} = render(`
+    const { queryByTestId } = render(`
       <div id="first">
         Step
           1
@@ -166,7 +166,7 @@ describe('.toHaveErrorMessage', () => {
   })
 
   test('can handle multiple levels with content spread across decendants', () => {
-    const {queryByTestId} = render(`
+    const { queryByTestId } = render(`
         <span id="errormessage">
             <span>Step</span>
             <span>      1</span>
@@ -180,7 +180,7 @@ describe('.toHaveErrorMessage', () => {
   })
 
   test('handles extra whitespace with multiple ids', () => {
-    const {queryByTestId} = render(`
+    const { queryByTestId } = render(`
     <div id="first">First errormessage</div>
     <div id="second">Second errormessage</div>
     <div id="third">Third errormessage</div>
@@ -195,7 +195,7 @@ describe('.toHaveErrorMessage', () => {
   })
 
   test('is case-sensitive', () => {
-    const {queryByTestId} = render(`
+    const { queryByTestId } = render(`
       <span id="errormessage">Sensitive text</span>
       <div data-testid="target" aria-errormessage="errormessage" aria-invalid="true"></div>
     `)

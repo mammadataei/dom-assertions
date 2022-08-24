@@ -1,4 +1,4 @@
-import {checkHtmlElement} from './utils'
+import { checkHtmlElement } from './utils'
 
 function getNormalizedHtml(container, htmlText) {
   const div = container.ownerDocument.createElement('div')
@@ -23,7 +23,6 @@ export function toContainHTML(container, htmlText) {
           '',
         ),
         'Expected:',
-        // eslint-disable-next-line @babel/new-cap
         `  ${this.utils.EXPECTED_COLOR(htmlText)}`,
         'Received:',
         `  ${this.utils.printReceived(container.cloneNode(true))}`,

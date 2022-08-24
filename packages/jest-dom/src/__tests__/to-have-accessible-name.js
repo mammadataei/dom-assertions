@@ -1,8 +1,8 @@
-import {render} from './helpers/test-utils'
+import { render } from './helpers/test-utils'
 
 describe('.toHaveAccessibleName', () => {
   it("recognizes an element's content as its label when appropriate", () => {
-    const {queryByTestId} = render(`
+    const { queryByTestId } = render(`
       <div>
         <ul data-testid="my-list">
           <li role="menuitem" data-testid="first"><strong>First</strong> element</li>
@@ -44,7 +44,7 @@ describe('.toHaveAccessibleName', () => {
   })
 
   it('works with label elements', () => {
-    const {queryByTestId} = render(`
+    const { queryByTestId } = render(`
       <div>
         <label for="first-name-field">First name</label>
         <input type="text" id="first-name-field" data-testid="first-name-field" />
@@ -90,7 +90,7 @@ describe('.toHaveAccessibleName', () => {
   })
 
   it('works with aria-label attributes', () => {
-    const {queryByTestId} = render(`
+    const { queryByTestId } = render(`
       <div>
         <label for="first-name-field">First name</label>
         <input
@@ -165,7 +165,7 @@ describe('.toHaveAccessibleName', () => {
   })
 
   it('works with aria-labelledby attributes', () => {
-    const {queryByTestId} = render(`
+    const { queryByTestId } = render(`
       <div>
         <label for="first-name-field">First name</label>
         <input
@@ -243,7 +243,7 @@ describe('.toHaveAccessibleName', () => {
   })
 
   it('works with image alt attributes', () => {
-    const {queryByTestId} = render(`
+    const { queryByTestId } = render(`
       <div>
         <img src="logo.png" alt="Company logo" data-testid="logo-img" />
         <button data-testid="close-button">
@@ -276,7 +276,7 @@ describe('.toHaveAccessibleName', () => {
   })
 
   it('works with svg title attributes', () => {
-    const {queryByTestId} = render(`
+    const { queryByTestId } = render(`
       <svg data-testid="svg-title"><title>Test title</title></svg>
     `)
 
@@ -293,7 +293,7 @@ describe('.toHaveAccessibleName', () => {
   })
 
   it('works as in the examples in the README', () => {
-    const {queryByTestId: getByTestId} = render(`
+    const { queryByTestId: getByTestId } = render(`
       <div>
         <img data-testid="img-alt" src="" alt="Test alt" />
         <img data-testid="img-empty-alt" src="" alt="" />

@@ -1,5 +1,5 @@
-import {computeAccessibleName} from 'dom-accessibility-api'
-import {checkHtmlElement, getMessage} from './utils'
+import { computeAccessibleName } from 'dom-accessibility-api'
+import { checkHtmlElement, getMessage } from './utils'
 
 export function toHaveAccessibleName(htmlElement, expectedAccessibleName) {
   checkHtmlElement(htmlElement, toHaveAccessibleName, this)

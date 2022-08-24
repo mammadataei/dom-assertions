@@ -1,6 +1,6 @@
 /* eslint max-statements:off */
 
-import {render} from './helpers/test-utils'
+import { render } from './helpers/test-utils'
 
 const renderElementWithClasses = () =>
   render(`
@@ -20,7 +20,7 @@ const renderElementWithClasses = () =>
 `)
 
 test('.toHaveClass', () => {
-  const {queryByTestId} = renderElementWithClasses()
+  const { queryByTestId } = renderElementWithClasses()
 
   expect(queryByTestId('delete-button')).toHaveClass('btn')
   expect(queryByTestId('delete-button')).toHaveClass('btn-danger')
@@ -94,7 +94,7 @@ test('.toHaveClass', () => {
 })
 
 test('.toHaveClass with exact mode option', () => {
-  const {queryByTestId} = renderElementWithClasses()
+  const { queryByTestId } = renderElementWithClasses()
 
   expect(queryByTestId('delete-button')).toHaveClass('btn extra btn-danger', {
     exact: true,
@@ -102,9 +102,10 @@ test('.toHaveClass with exact mode option', () => {
   expect(queryByTestId('delete-button')).not.toHaveClass('btn extra', {
     exact: true,
   })
-  expect(
-    queryByTestId('delete-button'),
-  ).not.toHaveClass('btn extra btn-danger foo', {exact: true})
+  expect(queryByTestId('delete-button')).not.toHaveClass(
+    'btn extra btn-danger foo',
+    { exact: true },
+  )
 
   expect(queryByTestId('delete-button')).toHaveClass('btn extra btn-danger', {
     exact: false,
@@ -112,15 +113,16 @@ test('.toHaveClass with exact mode option', () => {
   expect(queryByTestId('delete-button')).toHaveClass('btn extra', {
     exact: false,
   })
-  expect(
-    queryByTestId('delete-button'),
-  ).not.toHaveClass('btn extra btn-danger foo', {exact: false})
+  expect(queryByTestId('delete-button')).not.toHaveClass(
+    'btn extra btn-danger foo',
+    { exact: false },
+  )
 
   expect(queryByTestId('delete-button')).toHaveClass(
     'btn',
     'extra',
     'btn-danger',
-    {exact: true},
+    { exact: true },
   )
   expect(queryByTestId('delete-button')).not.toHaveClass('btn', 'extra', {
     exact: true,
@@ -130,14 +132,14 @@ test('.toHaveClass with exact mode option', () => {
     'extra',
     'btn-danger',
     'foo',
-    {exact: true},
+    { exact: true },
   )
 
   expect(queryByTestId('delete-button')).toHaveClass(
     'btn',
     'extra',
     'btn-danger',
-    {exact: false},
+    { exact: false },
   )
   expect(queryByTestId('delete-button')).toHaveClass('btn', 'extra', {
     exact: false,
@@ -147,10 +149,10 @@ test('.toHaveClass with exact mode option', () => {
     'extra',
     'btn-danger',
     'foo',
-    {exact: false},
+    { exact: false },
   )
 
-  expect(queryByTestId('only-one-class')).toHaveClass('alone', {exact: true})
+  expect(queryByTestId('only-one-class')).toHaveClass('alone', { exact: true })
   expect(queryByTestId('only-one-class')).not.toHaveClass('alone foo', {
     exact: true,
   })
@@ -158,7 +160,7 @@ test('.toHaveClass with exact mode option', () => {
     exact: true,
   })
 
-  expect(queryByTestId('only-one-class')).toHaveClass('alone', {exact: false})
+  expect(queryByTestId('only-one-class')).toHaveClass('alone', { exact: false })
   expect(queryByTestId('only-one-class')).not.toHaveClass('alone foo', {
     exact: false,
   })

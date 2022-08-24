@@ -1,4 +1,4 @@
-import {checkHtmlElement, getMessage} from './utils'
+import { checkHtmlElement, getMessage } from './utils'
 
 export function toHaveDisplayValue(htmlElement, expectedValue) {
   checkHtmlElement(htmlElement, toHaveDisplayValue, this)
@@ -18,8 +18,8 @@ export function toHaveDisplayValue(htmlElement, expectedValue) {
 
   const values = getValues(tagName, htmlElement)
   const expectedValues = getExpectedValues(expectedValue)
-  const numberOfMatchesWithValues = expectedValues.filter(expected =>
-    values.some(value =>
+  const numberOfMatchesWithValues = expectedValues.filter((expected) =>
+    values.some((value) =>
       expected instanceof RegExp
         ? expected.test(value)
         : this.equals(value, String(expected)),
@@ -51,8 +51,8 @@ export function toHaveDisplayValue(htmlElement, expectedValue) {
 function getValues(tagName, htmlElement) {
   return tagName === 'select'
     ? Array.from(htmlElement)
-        .filter(option => option.selected)
-        .map(option => option.textContent)
+        .filter((option) => option.selected)
+        .map((option) => option.textContent)
     : [htmlElement.value]
 }
 

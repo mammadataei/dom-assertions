@@ -1,10 +1,10 @@
-import {render} from './helpers/test-utils'
+import { render } from './helpers/test-utils'
 
 test('.toBeInTheDOM', () => {
   // @deprecated intentionally hiding warnings for test clarity
-  const spy = jest.spyOn(console, 'warn').mockImplementation(() => {})
+  const spy = jest.spyOn(console, 'warn').mockImplementation(() => null)
 
-  const {queryByTestId} = render(`
+  const { queryByTestId } = render(`
     <span data-testid="count-container">
       <span data-testid="count-value"></span>
       <svg data-testid="svg-element"></svg>
@@ -14,7 +14,7 @@ test('.toBeInTheDOM', () => {
   const valueElement = queryByTestId('count-value')
   const nonExistantElement = queryByTestId('not-exists')
   const svgElement = queryByTestId('svg-element')
-  const fakeElement = {thisIsNot: 'an html element'}
+  const fakeElement = { thisIsNot: 'an html element' }
 
   // Testing toBeInTheDOM without container
   expect(valueElement).toBeInTheDOM()

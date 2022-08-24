@@ -1,10 +1,10 @@
-import {render} from './helpers/test-utils'
+import { render } from './helpers/test-utils'
 
 describe('.toHaveDescription', () => {
   let spy
   beforeAll(() => {
     // @deprecated intentionally hiding warnings for test clarity
-    spy = jest.spyOn(console, 'warn').mockImplementation(() => {})
+    spy = jest.spyOn(console, 'warn').mockImplementation(() => null)
   })
 
   afterAll(() => {
@@ -12,7 +12,7 @@ describe('.toHaveDescription', () => {
   })
 
   test('handles positive test cases', () => {
-    const {queryByTestId} = render(`
+    const { queryByTestId } = render(`
     <div id="description">The description</div>
 
     <div data-testid="single" aria-describedby="description"></div>
@@ -40,7 +40,7 @@ describe('.toHaveDescription', () => {
   })
 
   test('handles multiple ids', () => {
-    const {queryByTestId} = render(`
+    const { queryByTestId } = render(`
     <div id="first">First description</div>
     <div id="second">Second description</div>
     <div id="third">Third description</div>
@@ -65,7 +65,7 @@ describe('.toHaveDescription', () => {
   })
 
   test('handles negative test cases', () => {
-    const {queryByTestId} = render(`
+    const { queryByTestId } = render(`
     <div id="description">The description</div>
     <div data-testid="target" aria-describedby="description"></div>
     `)
@@ -84,7 +84,7 @@ describe('.toHaveDescription', () => {
   })
 
   test('normalizes whitespace', () => {
-    const {queryByTestId} = render(`
+    const { queryByTestId } = render(`
       <div id="first">
         Step
           1
@@ -105,7 +105,7 @@ describe('.toHaveDescription', () => {
   })
 
   test('can handle multiple levels with content spread across decendants', () => {
-    const {queryByTestId} = render(`
+    const { queryByTestId } = render(`
         <span id="description">
             <span>Step</span>
             <span>      1</span>
@@ -121,7 +121,7 @@ describe('.toHaveDescription', () => {
   })
 
   test('handles extra whitespace with multiple ids', () => {
-    const {queryByTestId} = render(`
+    const { queryByTestId } = render(`
     <div id="first">First description</div>
     <div id="second">Second description</div>
     <div id="third">Third description</div>
@@ -137,7 +137,7 @@ describe('.toHaveDescription', () => {
   })
 
   test('is case-sensitive', () => {
-    const {queryByTestId} = render(`
+    const { queryByTestId } = render(`
       <span id="description">Sensitive text</span>
       <div data-testid="target" aria-describedby="description"></div>
     `)

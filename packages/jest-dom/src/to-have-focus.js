@@ -1,4 +1,4 @@
-import {checkHtmlElement} from './utils'
+import { checkHtmlElement } from './utils'
 
 export function toHaveFocus(element) {
   checkHtmlElement(element, toHaveFocus, this)

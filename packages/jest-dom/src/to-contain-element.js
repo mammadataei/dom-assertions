@@ -1,4 +1,4 @@
-import {checkHtmlElement} from './utils'
+import { checkHtmlElement } from './utils'
 
 export function toContainElement(container, element) {
   checkHtmlElement(container, toContainElement, this)
@@ -17,7 +17,6 @@ export function toContainElement(container, element) {
           'element',
         ),
         '',
-        // eslint-disable-next-line @babel/new-cap
         this.utils.RECEIVED_COLOR(`${this.utils.stringify(
           container.cloneNode(false),
         )} ${

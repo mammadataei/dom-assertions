@@ -1,7 +1,7 @@
-import {render} from './helpers/test-utils'
+import { render } from './helpers/test-utils'
 
 test('.toBeRequired', () => {
-  const {queryByTestId} = render(`
+  const { queryByTestId } = render(`
     <div>
       <input data-testid="required-input" required>
       <input data-testid="aria-required-input" aria-required="true">

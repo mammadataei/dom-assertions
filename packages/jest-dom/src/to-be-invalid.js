@@ -1,4 +1,4 @@
-import {checkHtmlElement, getTag} from './utils'
+import { checkHtmlElement, getTag } from './utils'
 
 const FORM_TAGS = ['form', 'input', 'select', 'textarea']
 

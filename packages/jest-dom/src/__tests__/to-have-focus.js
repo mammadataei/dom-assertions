@@ -1,8 +1,8 @@
-import {render} from './helpers/test-utils'
+import { render } from './helpers/test-utils'
 import document from './helpers/document'
 
 test('.toHaveFocus', () => {
-  const {container} = render(`
+  const { container } = render(`
       <div>
         <label for="focused">test</label>
         <input id="focused" type="text" />

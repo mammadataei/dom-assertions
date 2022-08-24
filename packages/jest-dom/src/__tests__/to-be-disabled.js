@@ -1,5 +1,5 @@
 import document from './helpers/document'
-import {render} from './helpers/test-utils'
+import { render } from './helpers/test-utils'
 
 const window = document.defaultView
 
@@ -9,7 +9,7 @@ window.customElements.define(
 )
 
 test('.toBeDisabled', () => {
-  const {queryByTestId} = render(`
+  const { queryByTestId } = render(`
     <div>
       <button disabled={true} data-testid="button-element">x</button>
       <textarea disabled={true} data-testid="textarea-element"></textarea>
@@ -67,7 +67,7 @@ test('.toBeDisabled', () => {
 })
 
 test('.toBeDisabled fieldset>legend', () => {
-  const {queryByTestId} = render(`
+  const { queryByTestId } = render(`
     <div>
       <fieldset disabled={true}>
         <button data-testid="inherited-element">x</button>
@@ -118,7 +118,7 @@ test('.toBeDisabled fieldset>legend', () => {
 })
 
 test('.toBeDisabled custom element', () => {
-  const {queryByTestId} = render(`
+  const { queryByTestId } = render(`
     <custom-element data-testid="disabled-custom-element" disabled=""></custom-element>
     <custom-element data-testid="enabled-custom-element"></custom-element>
   `)
@@ -135,7 +135,7 @@ test('.toBeDisabled custom element', () => {
 })
 
 test('.toBeEnabled', () => {
-  const {queryByTestId} = render(`
+  const { queryByTestId } = render(`
     <div>
       <button disabled={true} data-testid="button-element">x</button>
       <textarea disabled={true} data-testid="textarea-element"></textarea>
@@ -211,7 +211,7 @@ test('.toBeEnabled', () => {
 })
 
 test('.toBeEnabled fieldset>legend', () => {
-  const {queryByTestId} = render(`
+  const { queryByTestId } = render(`
     <div>
       <fieldset disabled={true}>
         <button data-testid="inherited-element">x</button>
@@ -268,7 +268,7 @@ test('.toBeEnabled fieldset>legend', () => {
 })
 
 test('.toBeEnabled custom element', () => {
-  const {queryByTestId} = render(`
+  const { queryByTestId } = render(`
     <custom-element data-testid="disabled-custom-element" disabled=""></custom-element>
     <custom-element data-testid="enabled-custom-element"></custom-element>
   `)

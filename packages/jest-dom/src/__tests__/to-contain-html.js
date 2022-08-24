@@ -1,9 +1,9 @@
-import {render} from './helpers/test-utils'
+import { render } from './helpers/test-utils'
 
 /* eslint-disable max-statements */
 describe('.toContainHTML', () => {
   test('handles positive and negative cases', () => {
-    const {queryByTestId} = render(`
+    const { queryByTestId } = render(`
     <span data-testid="grandparent">
       <span data-testid="parent">
         <span data-testid="child"></span>
@@ -16,7 +16,7 @@ describe('.toContainHTML', () => {
     const parent = queryByTestId('parent')
     const child = queryByTestId('child')
     const nonExistantElement = queryByTestId('not-exists')
-    const fakeElement = {thisIsNot: 'an html element'}
+    const fakeElement = { thisIsNot: 'an html element' }
     const stringChildElement = '<span data-testid="child"></span>'
     const stringChildElementSelfClosing = '<span data-testid="child" />'
     const incorrectStringHtml = '<span data-testid="child"></div>'
@@ -90,7 +90,7 @@ describe('.toContainHTML', () => {
   })
 
   test('throws with an expected text', () => {
-    const {queryByTestId} = render('<span data-testid="child"></span>')
+    const { queryByTestId } = render('<span data-testid="child"></span>')
     const htmlElement = queryByTestId('child')
     const nonExistantString = '<div> non-existant element </div>'
 

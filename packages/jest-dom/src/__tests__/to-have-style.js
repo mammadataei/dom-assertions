@@ -1,10 +1,10 @@
-import {render} from './helpers/test-utils'
+import { render } from './helpers/test-utils'
 import document from './helpers/document'
 
 // eslint-disable-next-line max-lines-per-function
 describe('.toHaveStyle', () => {
   test('handles positive test cases', () => {
-    const {container} = render(`
+    const { container } = render(`
           <div class="label" style="background-color: blue; height: 100%">
             Hello World
           </div>
@@ -58,7 +58,7 @@ describe('.toHaveStyle', () => {
   })
 
   test('handles negative test cases', () => {
-    const {container} = render(`
+    const { container } = render(`
     <div class="label" style="background-color: blue; height: 100%">
       Hello World
     </div>
@@ -111,7 +111,7 @@ describe('.toHaveStyle', () => {
   })
 
   test('properly normalizes colors', () => {
-    const {queryByTestId} = render(`
+    const { queryByTestId } = render(`
       <span data-testid="color-example" style="background-color: #123456">Hello World</span>
     `)
     expect(queryByTestId('color-example')).toHaveStyle(
@@ -120,7 +120,7 @@ describe('.toHaveStyle', () => {
   })
 
   test('handles inline custom properties', () => {
-    const {queryByTestId} = render(`
+    const { queryByTestId } = render(`
       <span data-testid="color-example" style="--color: blue">Hello World</span>
     `)
     expect(queryByTestId('color-example')).toHaveStyle('--color: blue')
@@ -134,7 +134,7 @@ describe('.toHaveStyle', () => {
       }
     `
 
-    const {container} = render(`
+    const { container } = render(`
       <div>
         Hello world
       </div>
@@ -147,14 +147,14 @@ describe('.toHaveStyle', () => {
   })
 
   test('properly normalizes colors for border', () => {
-    const {queryByTestId} = render(`
+    const { queryByTestId } = render(`
     <span data-testid="color-example" style="border: 1px solid #fff">Hello World</span>
   `)
     expect(queryByTestId('color-example')).toHaveStyle('border: 1px solid #fff')
   })
 
   test('handles different color declaration formats', () => {
-    const {queryByTestId} = render(`
+    const { queryByTestId } = render(`
       <span data-testid="color-example" style="color: rgba(0, 0, 0, 1); background-color: #000000">Hello World</span>
     `)
 
@@ -165,7 +165,7 @@ describe('.toHaveStyle', () => {
   })
 
   test('handles nonexistent styles', () => {
-    const {container} = render(`
+    const { container } = render(`
           <div class="label" style="background-color: blue; height: 100%">
             Hello World
           </div>
@@ -178,7 +178,7 @@ describe('.toHaveStyle', () => {
 
   describe('object syntax', () => {
     test('handles styles as object', () => {
-      const {container} = render(`
+      const { container } = render(`
         <div class="label" style="background-color: blue; height: 100%">
           Hello World
         </div>
@@ -201,16 +201,16 @@ describe('.toHaveStyle', () => {
     })
 
     test('Uses px as the default unit', () => {
-      const {queryByTestId} = render(`
+      const { queryByTestId } = render(`
         <span data-testid="color-example" style="font-size: 12px">Hello World</span>
       `)
       expect(queryByTestId('color-example')).toHaveStyle({
-        fontSize: 12
+        fontSize: 12,
       })
     })
 
     test('Fails with an invalid unit', () => {
-      const {queryByTestId} = render(`
+      const { queryByTestId } = render(`
         <span data-testid="color-example" style="font-size: 12rem">Hello World</span>
       `)
       expect(() => {
@@ -219,7 +219,7 @@ describe('.toHaveStyle', () => {
     })
 
     test('supports dash-cased property names', () => {
-      const {container} = render(`
+      const { container } = render(`
         <div class="label" style="background-color: blue; height: 100%">
           Hello World
         </div>
@@ -230,7 +230,7 @@ describe('.toHaveStyle', () => {
     })
 
     test('requires strict empty properties matching', () => {
-      const {container} = render(`
+      const { container } = render(`
         <div class="label" style="width: 100%;height: 100%">
           Hello World
         </div>

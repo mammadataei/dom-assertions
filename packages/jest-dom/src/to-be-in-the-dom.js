@@ -1,4 +1,4 @@
-import {checkHtmlElement, deprecate} from './utils'
+import { checkHtmlElement, deprecate } from './utils'
 
 export function toBeInTheDOM(element, container) {
   deprecate(

@@ -1,12 +1,12 @@
 import chalk from 'chalk'
-import {checkHtmlElement, parseCSS} from './utils'
+import { checkHtmlElement, parseCSS } from './utils'
 
 function getStyleDeclaration(document, css) {
   const styles = {}
 
   // The next block is necessary to normalize colors
   const copy = document.createElement('div')
-  Object.keys(css).forEach(property => {
+  Object.keys(css).forEach((property) => {
     copy.style[property] = css[property]
     styles[property] = copy.style[property]
   })
@@ -28,7 +28,7 @@ function isSubset(styles, computedStyle) {
 function printoutStyles(styles) {
   return Object.keys(styles)
     .sort()
-    .map(prop => `${prop}: ${styles[prop]};`)
+    .map((prop) => `${prop}: ${styles[prop]};`)
     .join('\n')
 }
 
@@ -36,10 +36,10 @@ function printoutStyles(styles) {
 // received computed styles
 function expectedDiff(diffFn, expected, computedStyles) {
   const received = Array.from(computedStyles)
-    .filter(prop => expected[prop] !== undefined)
+    .filter((prop) => expected[prop] !== undefined)
     .reduce(
       (obj, prop) =>
-        Object.assign(obj, {[prop]: computedStyles.getPropertyValue(prop)}),
+        Object.assign(obj, { [prop]: computedStyles.getPropertyValue(prop) }),
       {},
     )
   const diffOutput = diffFn(printoutStyles(expected), printoutStyles(received))
@@ -51,7 +51,7 @@ export function toHaveStyle(htmlElement, css) {
   checkHtmlElement(htmlElement, toHaveStyle, this)
   const parsedCSS =
     typeof css === 'object' ? css : parseCSS(css, toHaveStyle, this)
-  const {getComputedStyle} = htmlElement.ownerDocument.defaultView
+  const { getComputedStyle } = htmlElement.ownerDocument.defaultView
 
   const expected = getStyleDeclaration(htmlElement.ownerDocument, parsedCSS)
   const received = getComputedStyle(htmlElement)

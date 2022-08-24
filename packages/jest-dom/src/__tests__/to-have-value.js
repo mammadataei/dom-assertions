@@ -1,8 +1,8 @@
-import {render} from './helpers/test-utils'
+import { render } from './helpers/test-utils'
 
 describe('.toHaveValue', () => {
   test('handles value of text input', () => {
-    const {queryByTestId} = render(`
+    const { queryByTestId } = render(`
         <input type="text" value="foo" data-testid="value" />
         <input type="text" value=""  data-testid="empty" />
         <input type="text" data-testid="without" />
@@ -25,7 +25,7 @@ describe('.toHaveValue', () => {
   })
 
   test('handles value of number input', () => {
-    const {queryByTestId} = render(`
+    const { queryByTestId } = render(`
         <input type="number" value="5" data-testid="number" />
         <input type="number" value=""  data-testid="empty" />
         <input type="number" data-testid="without" />
@@ -48,7 +48,7 @@ describe('.toHaveValue', () => {
   })
 
   test('handles value of select element', () => {
-    const {queryByTestId} = render(`
+    const { queryByTestId } = render(`
       <select data-testid="single">
         <option value="first">First Value</option>
         <option value="second" selected>Second Value</option>
@@ -83,14 +83,14 @@ describe('.toHaveValue', () => {
   })
 
   test('handles value of textarea element', () => {
-    const {queryByTestId} = render(`
+    const { queryByTestId } = render(`
       <textarea data-testid="textarea">text value</textarea>
     `)
     expect(queryByTestId('textarea')).toHaveValue('text value')
   })
 
   test('throws when passed checkbox or radio', () => {
-    const {queryByTestId} = render(`
+    const { queryByTestId } = render(`
         <input data-testid="checkbox" type="checkbox" name="checkbox" value="val" checked />
         <input data-testid="radio" type="radio" name="radio" value="val" checked />
     `)
@@ -105,7 +105,7 @@ describe('.toHaveValue', () => {
   })
 
   test('throws when the expected input value does not match', () => {
-    const {container} = render(`<input data-testid="one" value="foo" />`)
+    const { container } = render(`<input data-testid="one" value="foo" />`)
     const input = container.firstChild
     let errorMessage
     try {
@@ -125,7 +125,7 @@ Received:
   })
 
   test('throws with type information when the expected text input value has loose equality with received value', () => {
-    const {container} = render(`<input data-testid="one" value="8" />`)
+    const { container } = render(`<input data-testid="one" value="8" />`)
     const input = container.firstChild
     let errorMessage
     try {
@@ -145,7 +145,7 @@ Received:
   })
 
   test('throws when using not but the expected input value does match', () => {
-    const {container} = render(`<input data-testid="one" value="foo" />`)
+    const { container } = render(`<input data-testid="one" value="foo" />`)
     const input = container.firstChild
     let errorMessage
 
@@ -165,7 +165,7 @@ Received:
   })
 
   test('throws when the form has no a value but a value is expected', () => {
-    const {container} = render(`<input data-testid="one" />`)
+    const { container } = render(`<input data-testid="one" />`)
     const input = container.firstChild
     let errorMessage
 
@@ -185,7 +185,7 @@ Received:
   })
 
   test('throws when the form has a value but none is expected', () => {
-    const {container} = render(`<input data-testid="one" value="foo" />`)
+    const { container } = render(`<input data-testid="one" value="foo" />`)
     const input = container.firstChild
     let errorMessage
 

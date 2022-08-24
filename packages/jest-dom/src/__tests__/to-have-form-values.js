@@ -1,18 +1,18 @@
-import {render} from './helpers/test-utils'
+import { render } from './helpers/test-utils'
 
 const categories = [
-  {value: '', label: '–'},
-  {value: 'design', label: 'Design'},
-  {value: 'ux', label: 'User Experience'},
-  {value: 'programming', label: 'Programming'},
+  { value: '', label: '–' },
+  { value: 'design', label: 'Design' },
+  { value: 'ux', label: 'User Experience' },
+  { value: 'programming', label: 'Programming' },
 ]
 
 const skills = [
-  {value: 'c-sharp', label: 'C#'},
-  {value: 'graphql', label: 'GraphQl'},
-  {value: 'javascript', label: 'JavaScript'},
-  {value: 'ruby-on-rails', label: 'Ruby on Rails'},
-  {value: 'python', label: 'Python'},
+  { value: 'c-sharp', label: 'C#' },
+  { value: 'graphql', label: 'GraphQl' },
+  { value: 'javascript', label: 'JavaScript' },
+  { value: 'ruby-on-rails', label: 'Ruby on Rails' },
+  { value: 'python', label: 'Python' },
 ]
 
 const defaultValues = {
@@ -37,7 +37,7 @@ function renderForm({
     ...defaultValues,
     ...valueOverrides,
   }
-  const {container} = render(`
+  const { container } = render(`
     <form>
       <label for="title">Job title</label>
       <input
@@ -118,13 +118,13 @@ describe('.toHaveFormValues', () => {
   })
 
   it('supports checkboxes for multiple selection', () => {
-    expect(renderForm({selectMultiple: renderCheckboxes})).toHaveFormValues({
+    expect(renderForm({ selectMultiple: renderCheckboxes })).toHaveFormValues({
       skills: ['javascript', 'ruby-on-rails'],
     })
   })
 
   it('supports radio-buttons for single selection', () => {
-    expect(renderForm({selectSingle: renderRadioButtons})).toHaveFormValues({
+    expect(renderForm({ selectSingle: renderRadioButtons })).toHaveFormValues({
       category: 'programming',
     })
   })
@@ -160,16 +160,16 @@ describe('.toHaveFormValues', () => {
   })
 
   it('handles <input type="number"> values correctly', () => {
-    expect(renderForm({values: {salary: 123.456}})).toHaveFormValues({
+    expect(renderForm({ values: { salary: 123.456 } })).toHaveFormValues({
       salary: 123.456,
     })
-    expect(renderForm({values: {salary: '1e5'}})).toHaveFormValues({
+    expect(renderForm({ values: { salary: '1e5' } })).toHaveFormValues({
       salary: 1e5,
     })
-    expect(renderForm({values: {salary: '1.35e5'}})).toHaveFormValues({
+    expect(renderForm({ values: { salary: '1.35e5' } })).toHaveFormValues({
       salary: 135000,
     })
-    expect(renderForm({values: {salary: '-5.9'}})).toHaveFormValues({
+    expect(renderForm({ values: { salary: '-5.9' } })).toHaveFormValues({
       salary: -5.9,
     })
   })
@@ -177,7 +177,7 @@ describe('.toHaveFormValues', () => {
   describe('edge cases', () => {
     // This is also to ensure 100% code coverage for edge cases
     it('detects multiple elements with the same name but different type', () => {
-      const {container} = render(`
+      const { container } = render(`
         <form>
           <input type="checkbox" name="accept">
           <input type="radio" name="accept">
@@ -190,7 +190,7 @@ describe('.toHaveFormValues', () => {
     })
 
     it('detects multiple elements with the same type and name', () => {
-      const {container} = render(`
+      const { container } = render(`
         <form>
           <input type="text" name="title" value="one">
           <input type="text" name="title" value="two">
@@ -206,7 +206,7 @@ describe('.toHaveFormValues', () => {
       expect(
         renderForm({
           selectSingle: renderRadioButtons,
-          values: {category: undefined},
+          values: { category: undefined },
         }),
       ).toHaveFormValues({
         category: undefined,
@@ -214,8 +214,8 @@ describe('.toHaveFormValues', () => {
     })
 
     it('supports being called only on form and fieldset elements', () => {
-      const expectedValues = {title: 'one', description: 'two'}
-      const {container} = render(`
+      const expectedValues = { title: 'one', description: 'two' }
+      const { container } = render(`
         <form>
           <input type="text" name="title" value="one">
           <input type="text" name="description" value="two">
@@ -234,7 +234,7 @@ describe('.toHaveFormValues', () => {
       const oldValue = ''
       const newValue = 'design'
 
-      const {container} = render(`
+      const { container } = render(`
         <form>
           ${renderSelectSingle('category', 'Category', categories, oldValue)}
         </form>
@@ -242,10 +242,10 @@ describe('.toHaveFormValues', () => {
 
       const form = container.querySelector('form')
       const select = container.querySelector('select')
-      expect(form).toHaveFormValues({category: oldValue})
+      expect(form).toHaveFormValues({ category: oldValue })
 
       select.value = newValue
-      expect(form).toHaveFormValues({category: newValue})
+      expect(form).toHaveFormValues({ category: newValue })
     })
   })
 
@@ -255,7 +255,7 @@ describe('.toHaveFormValues', () => {
         expect(renderForm()).not.toHaveFormValues(defaultValues)
       }).toThrowError(/Expected the element not to have form values/)
       expect(() => {
-        expect(renderForm()).toHaveFormValues({something: 'missing'})
+        expect(renderForm()).toHaveFormValues({ something: 'missing' })
       }).toThrowError(/Expected the element to have form values/)
     })
   })
@@ -273,7 +273,7 @@ function renderCheckboxes(name, label, options, value = []) {
       <legend>${label}</legend>
       ${renderList(
         options,
-        option => `
+        (option) => `
           <div>
             <input
               type="checkbox"
@@ -296,7 +296,7 @@ function renderRadioButtons(name, label, options, value = undefined) {
       <legend>${label}</legend>
       ${renderList(
         options,
-        option => `
+        (option) => `
           <div>
             <input
               type="radio"
@@ -319,7 +319,7 @@ function renderSelect(name, label, options, value, multiple) {
     <select id="${name}" name="${name}" ${multiple ? 'multiple' : ''}>
       ${renderList(
         options,
-        option => `
+        (option) => `
           <option
             value="${option.value}"
             ${isSelected(value, option) ? 'selected' : ''}

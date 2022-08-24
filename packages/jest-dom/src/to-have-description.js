@@ -1,11 +1,8 @@
-import {checkHtmlElement, getMessage, normalize, deprecate} from './utils'
+import { checkHtmlElement, getMessage, normalize, deprecate } from './utils'
 
 // See algoritm: https://www.w3.org/TR/accname-1.1/#mapping_additional_nd_description
 export function toHaveDescription(htmlElement, checkWith) {
-  deprecate(
-    'toHaveDescription',
-    'Please use toHaveAccessibleDescription.',
-  )
+  deprecate('toHaveDescription', 'Please use toHaveAccessibleDescription.')
 
   checkHtmlElement(htmlElement, toHaveDescription, this)
 
@@ -17,9 +14,11 @@ export function toHaveDescription(htmlElement, checkWith) {
   if (descriptionIDs.length > 0) {
     const document = htmlElement.ownerDocument
     const descriptionEls = descriptionIDs
-      .map(descriptionID => document.getElementById(descriptionID))
+      .map((descriptionID) => document.getElementById(descriptionID))
       .filter(Boolean)
-    description = normalize(descriptionEls.map(el => el.textContent).join(' '))
+    description = normalize(
+      descriptionEls.map((el) => el.textContent).join(' '),
+    )
   }
 
   return {

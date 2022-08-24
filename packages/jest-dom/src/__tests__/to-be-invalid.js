@@ -1,5 +1,5 @@
-import {JSDOM} from 'jsdom'
-import {render} from './helpers/test-utils'
+import { JSDOM } from 'jsdom'
+import { render } from './helpers/test-utils'
 
 /*
  * This function is being used to test if `.toBeInvalid` and `.toBeValid`
@@ -35,7 +35,7 @@ const invalidFormNode = getDOMElement(invalidFormHtml, 'form')
 
 describe('.toBeInvalid', () => {
   test('handles <input/>', () => {
-    const {queryByTestId} = render(`
+    const { queryByTestId } = render(`
       <div>
         <input data-testid="no-aria-invalid">
         <input data-testid="aria-invalid" aria-invalid>
@@ -67,7 +67,7 @@ describe('.toBeInvalid', () => {
   })
 
   test('handles <form/>', () => {
-    const {queryByTestId} = render(`
+    const { queryByTestId } = render(`
       <form data-testid="valid">
         <input>
       </form>
@@ -82,7 +82,7 @@ describe('.toBeInvalid', () => {
   })
 
   test('handles any element', () => {
-    const {queryByTestId} = render(`
+    const { queryByTestId } = render(`
       <ol data-testid="valid">
         <li data-testid="no-aria-invalid" > </li>
         <li data-testid="aria-invalid" aria-invalid>  </li>
@@ -116,7 +116,7 @@ describe('.toBeInvalid', () => {
 
 describe('.toBeValid', () => {
   test('handles <input/>', () => {
-    const {queryByTestId} = render(`
+    const { queryByTestId } = render(`
       <div>
         <input data-testid="no-aria-invalid">
         <input data-testid="aria-invalid" aria-invalid>
@@ -148,7 +148,7 @@ describe('.toBeValid', () => {
   })
 
   test('handles <form/>', () => {
-    const {queryByTestId} = render(`
+    const { queryByTestId } = render(`
       <form data-testid="valid">
         <input>
       </form>
@@ -163,7 +163,7 @@ describe('.toBeValid', () => {
   })
 
   test('handles any element', () => {
-    const {queryByTestId} = render(`
+    const { queryByTestId } = render(`
       <ol data-testid="valid">
         <li data-testid="no-aria-invalid" > </li>
         <li data-testid="aria-invalid" aria-invalid>  </li>

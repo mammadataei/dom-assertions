@@ -3,7 +3,7 @@ import document from './document'
 function render(html) {
   const container = document.createElement('div')
   container.innerHTML = html
-  const queryByTestId = testId =>
+  const queryByTestId = (testId) =>
     container.querySelector(`[data-testid="${testId}"]`)
   // asFragment has been stolen from react-testing-library
   const asFragment = () =>
@@ -14,7 +14,7 @@ function render(html) {
   document.body.innerHTML = ''
   document.body.appendChild(container)
 
-  return {container, queryByTestId, asFragment}
+  return { container, queryByTestId, asFragment }
 }
 
-export {render}
+export { render }

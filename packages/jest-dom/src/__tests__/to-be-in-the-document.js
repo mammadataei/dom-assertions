@@ -1,4 +1,4 @@
-import {HtmlElementTypeError} from '../utils'
+import { HtmlElementTypeError } from '../utils'
 import document from './helpers/document'
 
 test('.toBeInTheDocument', () => {
@@ -9,7 +9,7 @@ test('.toBeInTheDocument', () => {
     class extends window.HTMLElement {
       constructor() {
         super()
-        this.attachShadow({mode: 'open'}).innerHTML =
+        this.attachShadow({ mode: 'open' }).innerHTML =
           '<div data-testid="custom-element-child"></div>'
       }
     },
@@ -26,7 +26,7 @@ test('.toBeInTheDocument', () => {
     .querySelector('[data-testid="custom-element"]')
     .shadowRoot.querySelector('[data-testid="custom-element-child"]')
   const detachedElement = document.createElement('div')
-  const fakeElement = {thisIsNot: 'an html element'}
+  const fakeElement = { thisIsNot: 'an html element' }
   const undefinedElement = undefined
   const nullElement = null
 

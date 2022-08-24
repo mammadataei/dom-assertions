@@ -1,4 +1,4 @@
-import {checkHtmlElement, getMessage} from './utils'
+import { checkHtmlElement, getMessage } from './utils'
 
 function getExpectedClassNamesAndOptions(params) {
   const lastParam = params.pop()
@@ -9,25 +9,26 @@ function getExpectedClassNamesAndOptions(params) {
     options = lastParam
   } else {
     expectedClassNames = params.concat(lastParam)
-    options = {exact: false}
+    options = { exact: false }
   }
-  return {expectedClassNames, options}
+  return { expectedClassNames, options }
 }
 
 function splitClassNames(str) {
   if (!str) {
     return []
   }
-  return str.split(/\s+/).filter(s => s.length > 0)
+  return str.split(/\s+/).filter((s) => s.length > 0)
 }
 
 function isSubset(subset, superset) {
-  return subset.every(item => superset.includes(item))
+  return subset.every((item) => superset.includes(item))
 }
 
 export function toHaveClass(htmlElement, ...params) {
   checkHtmlElement(htmlElement, toHaveClass, this)
-  const {expectedClassNames, options} = getExpectedClassNamesAndOptions(params)
+  const { expectedClassNames, options } =
+    getExpectedClassNamesAndOptions(params)
 
   const received = splitClassNames(htmlElement.getAttribute('class'))
   const expected = expectedClassNames.reduce(

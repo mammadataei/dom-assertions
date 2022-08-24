@@ -1,4 +1,4 @@
-import {checkHtmlElement} from './utils'
+import { checkHtmlElement } from './utils'
 
 export function toBeInTheDocument(element) {
   if (element !== null || !this.isNot) {
@@ -8,7 +8,7 @@ export function toBeInTheDocument(element) {
   const pass =
     element === null
       ? false
-      : element.ownerDocument === element.getRootNode({composed: true})
+      : element.ownerDocument === element.getRootNode({ composed: true })
 
   const errorFound = () => {
     return `expected document not to contain element, found ${this.utils.stringify(
@@ -29,7 +29,6 @@ export function toBeInTheDocument(element) {
           '',
         ),
         '',
-        // eslint-disable-next-line @babel/new-cap
         this.utils.RECEIVED_COLOR(this.isNot ? errorFound() : errorNotFound()),
       ].join('\n')
     },

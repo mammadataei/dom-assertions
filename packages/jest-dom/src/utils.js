@@ -1,6 +1,6 @@
 import redent from 'redent'
 import isEqual from 'lodash/isEqual'
-import {parse} from '@adobe/css-tools'
+import { parse } from '@adobe/css-tools'
 
 class GenericTypeError extends Error {
   constructor(expectedString, received, matcherFn, context) {
@@ -28,7 +28,6 @@ class GenericTypeError extends Error {
         '',
       ),
       '',
-      // eslint-disable-next-line @babel/new-cap
       `${context.utils.RECEIVED_COLOR(
         'received',
       )} value must ${expectedString}.`,
@@ -91,19 +90,17 @@ class InvalidCSSError extends Error {
     this.message = [
       received.message,
       '',
-      // eslint-disable-next-line @babel/new-cap
       context.utils.RECEIVED_COLOR(`Failing css:`),
-      // eslint-disable-next-line @babel/new-cap
       context.utils.RECEIVED_COLOR(`${received.css}`),
     ].join('\n')
   }
 }
 
 function parseCSS(css, ...args) {
-  const ast = parse(`selector { ${css} }`, {silent: true}).stylesheet
+  const ast = parse(`selector { ${css} }`, { silent: true }).stylesheet
 
   if (ast.parsingErrors && ast.parsingErrors.length > 0) {
-    const {reason, line} = ast.parsingErrors[0]
+    const { reason, line } = ast.parsingErrors[0]
 
     throw new InvalidCSSError(
       {
@@ -115,9 +112,9 @@ function parseCSS(css, ...args) {
   }
 
   const parsedRules = ast.rules[0].declarations
-    .filter(d => d.type === 'declaration')
+    .filter((d) => d.type === 'declaration')
     .reduce(
-      (obj, {property, value}) => Object.assign(obj, {[property]: value}),
+      (obj, { property, value }) => Object.assign(obj, { [property]: value }),
       {},
     )
   return parsedRules
@@ -137,11 +134,9 @@ function getMessage(
 ) {
   return [
     `${matcher}\n`,
-    // eslint-disable-next-line @babel/new-cap
     `${expectedLabel}:\n${context.utils.EXPECTED_COLOR(
       redent(display(context, expectedValue), 2),
     )}`,
-    // eslint-disable-next-line @babel/new-cap
     `${receivedLabel}:\n${context.utils.RECEIVED_COLOR(
       redent(display(context, receivedValue), 2),
     )}`,
@@ -173,11 +168,11 @@ function getTag(element) {
   return element.tagName && element.tagName.toLowerCase()
 }
 
-function getSelectValue({multiple, options}) {
-  const selectedOptions = [...options].filter(option => option.selected)
+function getSelectValue({ multiple, options }) {
+  const selectedOptions = [...options].filter((option) => option.selected)
 
   if (multiple) {
-    return [...selectedOptions].map(opt => opt.value)
+    return [...selectedOptions].map((opt) => opt.value)
   }
   /* istanbul ignore if */
   if (selectedOptions.length === 0) {
@@ -221,7 +216,7 @@ function compareArraysAsSet(a, b) {
 
 function toSentence(
   array,
-  {wordConnector = ', ', lastWordConnector = ' and '} = {},
+  { wordConnector = ', ', lastWordConnector = ' and ' } = {},
 ) {
   return [array.slice(0, -1).join(wordConnector), array[array.length - 1]].join(
     array.length > 1 ? lastWordConnector : '',

@@ -661,8 +661,8 @@ expect(deleteButton).toHaveClass('btn-danger btn')
 expect(deleteButton).toHaveClass('btn-danger', 'btn')
 expect(deleteButton).not.toHaveClass('btn-link')
 
-expect(deleteButton).toHaveClass('btn-danger extra btn', {exact: true}) // to check if the element has EXACTLY a set of classes
-expect(deleteButton).not.toHaveClass('btn-danger extra', {exact: true}) // if it has more than expected it is going to fail
+expect(deleteButton).toHaveClass('btn-danger extra btn', { exact: true }) // to check if the element has EXACTLY a set of classes
+expect(deleteButton).not.toHaveClass('btn-danger extra', { exact: true }) // if it has more than expected it is going to fail
 
 expect(noClasses).not.toHaveClass()
 ```
@@ -802,7 +802,7 @@ expected properties applied, not just some of them.
 const button = getByTestId('delete-button')
 
 expect(button).toHaveStyle('display: none')
-expect(button).toHaveStyle({display: 'none'})
+expect(button).toHaveStyle({ display: 'none' })
 expect(button).toHaveStyle(`
   background-color: red;
   display: none;
@@ -1220,7 +1220,7 @@ To perform a partial match, you can pass a `RegExp` or use
 ```
 
 ```javascript
-const closeButton = getByRole('button', {name: 'Close'})
+const closeButton = getByRole('button', { name: 'Close' })
 
 expect(closeButton).toHaveDescription('Closing will discard any changes')
 expect(closeButton).toHaveDescription(/will discard/) // to partially match
@@ -1228,7 +1228,7 @@ expect(closeButton).toHaveDescription(expect.stringContaining('will discard')) /
 expect(closeButton).toHaveDescription(/^closing/i) // to use case-insensitive match
 expect(closeButton).not.toHaveDescription('Other description')
 
-const deleteButton = getByRole('button', {name: 'Delete'})
+const deleteButton = getByRole('button', { name: 'Delete' })
 expect(deleteButton).not.toHaveDescription()
 expect(deleteButton).toHaveDescription('') // Missing or empty description always becomes a blank string
 ```

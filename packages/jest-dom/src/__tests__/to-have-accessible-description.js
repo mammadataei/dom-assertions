@@ -1,8 +1,8 @@
-import {render} from './helpers/test-utils'
+import { render } from './helpers/test-utils'
 
 describe('.toHaveAccessibleDescription', () => {
   it('works with the link title attribute', () => {
-    const {queryByTestId} = render(`
+    const { queryByTestId } = render(`
       <div>
         <a data-testid="link" href="/" aria-label="Home page" title="A link to start over">Start</a>
         <a data-testid="extra-link" href="/about" aria-label="About page">About</a>
@@ -28,7 +28,7 @@ describe('.toHaveAccessibleDescription', () => {
   })
 
   it('works with aria-describedby attributes', () => {
-    const {queryByTestId} = render(`
+    const { queryByTestId } = render(`
       <div>
         <img src="avatar.jpg" data-testid="avatar" alt="User profile pic">
         <img src="logo.jpg" data-testid="logo" alt="Company logo" aria-describedby="t1">
@@ -58,7 +58,7 @@ describe('.toHaveAccessibleDescription', () => {
   })
 
   it('handles multiple ids', () => {
-    const {queryByTestId} = render(`
+    const { queryByTestId } = render(`
       <div>
         <div id="first">First description</div>
         <div id="second">Second description</div>
@@ -87,7 +87,7 @@ describe('.toHaveAccessibleDescription', () => {
   })
 
   it('normalizes whitespace', () => {
-    const {queryByTestId} = render(`
+    const { queryByTestId } = render(`
       <div id="first">
         Step
           1

@@ -1,7 +1,7 @@
-import {render} from './helpers/test-utils'
+import { render } from './helpers/test-utils'
 
 test('.toBeEmptyDOMElement', () => {
-  const {queryByTestId} = render(`
+  const { queryByTestId } = render(`
     <span data-testid="not-empty">
         <span data-testid="empty"></span>
         <svg data-testid="svg-empty"></svg>
@@ -23,7 +23,7 @@ test('.toBeEmptyDOMElement', () => {
   const withWhitespace = queryByTestId('with-whitespace')
   const withText = queryByTestId('with-whitespace')
   const nonExistantElement = queryByTestId('not-exists')
-  const fakeElement = {thisIsNot: 'an html element'}
+  const fakeElement = { thisIsNot: 'an html element' }
 
   expect(empty).toBeEmptyDOMElement()
   expect(svgEmpty).toBeEmptyDOMElement()
@@ -44,11 +44,15 @@ test('.toBeEmptyDOMElement', () => {
 
   expect(() => expect(withComment).not.toBeEmptyDOMElement()).toThrowError()
 
-  expect(() => expect(withMultipleComments).not.toBeEmptyDOMElement()).toThrowError()
+  expect(() =>
+    expect(withMultipleComments).not.toBeEmptyDOMElement(),
+  ).toThrowError()
 
   expect(() => expect(withElement).toBeEmptyDOMElement()).toThrowError()
 
-  expect(() => expect(withElementAndComment).toBeEmptyDOMElement()).toThrowError()
+  expect(() =>
+    expect(withElementAndComment).toBeEmptyDOMElement(),
+  ).toThrowError()
 
   expect(() => expect(withWhitespace).toBeEmptyDOMElement()).toThrowError()
 

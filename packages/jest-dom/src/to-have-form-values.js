@@ -10,7 +10,7 @@ import {
 // Returns the combined value of several elements that have the same name
 // e.g. radio buttons or groups of checkboxes
 function getMultiElementValue(elements) {
-  const types = uniq(elements.map(element => element.type))
+  const types = uniq(elements.map((element) => element.type))
   if (types.length !== 1) {
     throw new Error(
       'Multiple form elements with the same name must be of the same type',
@@ -18,16 +18,16 @@ function getMultiElementValue(elements) {
   }
   switch (types[0]) {
     case 'radio': {
-      const theChosenOne = elements.find(radio => radio.checked)
+      const theChosenOne = elements.find((radio) => radio.checked)
       return theChosenOne ? theChosenOne.value : undefined
     }
     case 'checkbox':
       return elements
-        .filter(checkbox => checkbox.checked)
-        .map(checkbox => checkbox.value)
+        .filter((checkbox) => checkbox.checked)
+        .map((checkbox) => checkbox.value)
     default:
       // NOTE: Not even sure this is a valid use case, but just in case...
-      return elements.map(element => element.value)
+      return elements.map((element) => element.value)
   }
 }
 
@@ -51,7 +51,7 @@ function getPureName(name) {
 }
 
 function getAllFormValues(container) {
-  const names = Array.from(container.elements).map(element => element.name)
+  const names = Array.from(container.elements).map((element) => element.name)
   return names.reduce(
     (obj, name) => ({
       ...obj,
@@ -76,8 +76,10 @@ export function toHaveFormValues(formElement, expectedValues) {
       const to = this.isNot ? 'not to' : 'to'
       const matcher = `${this.isNot ? '.not' : ''}.toHaveFormValues`
       const commonKeyValues = Object.keys(formValues)
-        .filter(key => expectedValues.hasOwnProperty(key))
-        .reduce((obj, key) => ({...obj, [key]: formValues[key]}), {})
+        .filter((key) =>
+          Object.prototype.hasOwnProperty.call(expectedValues, key),
+        )
+        .reduce((obj, key) => ({ ...obj, [key]: formValues[key] }), {})
       return [
         this.utils.matcherHint(matcher, 'element', ''),
         `Expected the element ${to} have form values`,

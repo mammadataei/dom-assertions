@@ -1,4 +1,4 @@
-import {checkHtmlElement, getMessage} from './utils'
+import { checkHtmlElement, getMessage } from './utils'
 
 function printAttribute(stringify, name, value) {
   return value === undefined ? name : `${name}=${stringify(value)}`

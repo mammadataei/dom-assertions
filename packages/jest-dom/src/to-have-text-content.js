@@ -1,9 +1,9 @@
-import {getMessage, checkNode, matches, normalize} from './utils'
+import { getMessage, checkNode, matches, normalize } from './utils'
 
 export function toHaveTextContent(
   node,
   checkWith,
-  options = {normalizeWhitespace: true},
+  options = { normalizeWhitespace: true },
 ) {
   checkNode(node, toHaveTextContent, this)
 

@@ -1,6 +1,6 @@
-import {render} from './helpers/test-utils'
+import { render } from './helpers/test-utils'
 
-const {queryByTestId} = render(`
+const { queryByTestId } = render(`
 <span data-testid="grandparent">
   <span data-testid="parent">
     <span data-testid="child"></span>
@@ -14,7 +14,7 @@ const parent = queryByTestId('parent')
 const child = queryByTestId('child')
 const svgElement = queryByTestId('svg-element')
 const nonExistantElement = queryByTestId('not-exists')
-const fakeElement = {thisIsNot: 'an html element'}
+const fakeElement = { thisIsNot: 'an html element' }
 
 test('.toContainElement positive test cases', () => {
   expect(grandparent).toContainElement(parent)

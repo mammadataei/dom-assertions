@@ -1,5 +1,5 @@
-import {roles} from 'aria-query'
-import {checkHtmlElement, toSentence} from './utils'
+import { roles } from 'aria-query'
+import { checkHtmlElement, toSentence } from './utils'
 
 export function toBeChecked(element) {
   checkHtmlElement(element, toBeChecked, this)
@@ -51,8 +51,8 @@ export function toBeChecked(element) {
 
 function supportedRolesSentence() {
   return toSentence(
-    supportedRoles().map(role => `role="${role}"`),
-    {lastWordConnector: ' or '},
+    supportedRoles().map((role) => `role="${role}"`),
+    { lastWordConnector: ' or ' },
   )
 }
 

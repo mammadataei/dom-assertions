@@ -9,7 +9,7 @@ import {
 import document from './helpers/document'
 
 test('deprecate', () => {
-  const spy = jest.spyOn(console, 'warn').mockImplementation(() => {})
+  const spy = jest.spyOn(console, 'warn').mockImplementation(() => null)
   const name = 'test'
   const replacement = 'test'
   const message = `Warning: ${name} has been deprecated and will be removed in future updates.`
@@ -30,7 +30,7 @@ describe('checkHtmlElement', () => {
       fakeMatcher() {
         assertionContext = this
 
-        return {pass: true}
+        return { pass: true }
       },
     })
 
@@ -39,7 +39,7 @@ describe('checkHtmlElement', () => {
   it('does not throw an error for correct html element', () => {
     expect(() => {
       const element = document.createElement('p')
-      checkHtmlElement(element, () => {}, assertionContext)
+      checkHtmlElement(element, () => null, assertionContext)
     }).not.toThrow()
   })
 
@@ -49,33 +49,33 @@ describe('checkHtmlElement', () => {
         'http://www.w3.org/2000/svg',
         'rect',
       )
-      checkHtmlElement(element, () => {}, assertionContext)
+      checkHtmlElement(element, () => null, assertionContext)
     }).not.toThrow()
   })
 
   it('does not throw for body', () => {
     expect(() => {
-      checkHtmlElement(document.body, () => {}, assertionContext)
+      checkHtmlElement(document.body, () => null, assertionContext)
     }).not.toThrow()
   })
 
   it('throws for undefined', () => {
     expect(() => {
-      checkHtmlElement(undefined, () => {}, assertionContext)
+      checkHtmlElement(undefined, () => null, assertionContext)
     }).toThrow(HtmlElementTypeError)
   })
 
   it('throws for document', () => {
     expect(() => {
-      checkHtmlElement(document, () => {}, assertionContext)
+      checkHtmlElement(document, () => null, assertionContext)
     }).toThrow(HtmlElementTypeError)
   })
 
   it('throws for function', () => {
     expect(() => {
       checkHtmlElement(
-        () => {},
-        () => {},
+        () => null,
+        () => null,
         assertionContext,
       )
     }).toThrow(HtmlElementTypeError)
@@ -87,10 +87,10 @@ describe('checkHtmlElement', () => {
       checkHtmlElement(
         {
           ownerDocument: {
-            defaultView: {HTMLElement: FakeObject, SVGElement: FakeObject},
+            defaultView: { HTMLElement: FakeObject, SVGElement: FakeObject },
           },
         },
-        () => {},
+        () => null,
         assertionContext,
       )
     }).toThrow(HtmlElementTypeError)
@@ -104,7 +104,7 @@ describe('checkNode', () => {
       fakeMatcher() {
         assertionContext = this
 
-        return {pass: true}
+        return { pass: true }
       },
     })
 
@@ -113,7 +113,7 @@ describe('checkNode', () => {
   it('does not throw an error for correct html element', () => {
     expect(() => {
       const element = document.createElement('p')
-      checkNode(element, () => {}, assertionContext)
+      checkNode(element, () => null, assertionContext)
     }).not.toThrow()
   })
 
@@ -123,47 +123,47 @@ describe('checkNode', () => {
         'http://www.w3.org/2000/svg',
         'rect',
       )
-      checkNode(element, () => {}, assertionContext)
+      checkNode(element, () => null, assertionContext)
     }).not.toThrow()
   })
 
   it('does not throw an error for Document fragments', () => {
     expect(() => {
       const fragment = document.createDocumentFragment()
-      checkNode(fragment, () => {}, assertionContext)
+      checkNode(fragment, () => null, assertionContext)
     }).not.toThrow()
   })
 
   it('does not throw an error for text nodes', () => {
     expect(() => {
       const text = document.createTextNode('foo')
-      checkNode(text, () => {}, assertionContext)
+      checkNode(text, () => null, assertionContext)
     }).not.toThrow()
   })
 
   it('does not throw for body', () => {
     expect(() => {
-      checkNode(document.body, () => {}, assertionContext)
+      checkNode(document.body, () => null, assertionContext)
     }).not.toThrow()
   })
 
   it('throws for undefined', () => {
     expect(() => {
-      checkNode(undefined, () => {}, assertionContext)
+      checkNode(undefined, () => null, assertionContext)
     }).toThrow(NodeTypeError)
   })
 
   it('throws for document', () => {
     expect(() => {
-      checkNode(document, () => {}, assertionContext)
+      checkNode(document, () => null, assertionContext)
     }).toThrow(NodeTypeError)
   })
 
   it('throws for function', () => {
     expect(() => {
       checkNode(
-        () => {},
-        () => {},
+        () => null,
+        () => null,
         assertionContext,
       )
     }).toThrow(NodeTypeError)
@@ -175,10 +175,10 @@ describe('checkNode', () => {
       checkNode(
         {
           ownerDocument: {
-            defaultView: {Node: FakeObject, SVGElement: FakeObject},
+            defaultView: { Node: FakeObject, SVGElement: FakeObject },
           },
         },
-        () => {},
+        () => null,
         assertionContext,
       )
     }).toThrow(NodeTypeError)
@@ -191,14 +191,14 @@ describe('toSentence', () => {
   })
 
   it('supports custom word connector', () => {
-    expect(toSentence(['one', 'two', 'three'], {wordConnector: '; '})).toBe(
+    expect(toSentence(['one', 'two', 'three'], { wordConnector: '; ' })).toBe(
       'one; two and three',
     )
   })
 
   it('supports custom last word connector', () => {
     expect(
-      toSentence(['one', 'two', 'three'], {lastWordConnector: ' or '}),
+      toSentence(['one', 'two', 'three'], { lastWordConnector: ' or ' }),
     ).toBe('one, two or three')
   })
 

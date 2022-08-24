@@ -1,4 +1,4 @@
-import {checkHtmlElement} from './utils'
+import { checkHtmlElement } from './utils'
 
 export function toBePartiallyChecked(element) {
   checkHtmlElement(element, toBePartiallyChecked, this)

@@ -1,7 +1,7 @@
-import {render} from './helpers/test-utils'
+import { render } from './helpers/test-utils'
 
 test('.toHaveAttribute', () => {
-  const {queryByTestId} = render(`
+  const { queryByTestId } = render(`
     <button data-testid="ok-button" type="submit" disabled>
       OK
     </button>
@@ -39,7 +39,7 @@ test('.toHaveAttribute', () => {
     expect(queryByTestId('svg-element')).not.toHaveAttribute('width', '12'),
   ).toThrowError()
   expect(() =>
-    expect({thisIsNot: 'an html element'}).not.toHaveAttribute(),
+    expect({ thisIsNot: 'an html element' }).not.toHaveAttribute(),
   ).toThrowError()
 
   // Asymmetric matchers

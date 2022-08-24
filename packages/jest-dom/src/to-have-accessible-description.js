@@ -1,5 +1,5 @@
-import {computeAccessibleDescription} from 'dom-accessibility-api'
-import {checkHtmlElement, getMessage} from './utils'
+import { computeAccessibleDescription } from 'dom-accessibility-api'
+import { checkHtmlElement, getMessage } from './utils'
 
 export function toHaveAccessibleDescription(
   htmlElement,

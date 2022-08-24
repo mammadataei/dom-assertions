@@ -1,4 +1,4 @@
-import {checkHtmlElement, getTag} from './utils'
+import { checkHtmlElement, getTag } from './utils'
 
 // form elements that support 'disabled'
 const FORM_TAGS = [
@@ -25,7 +25,7 @@ function isFirstLegendChildOfFieldset(element, parent) {
     getTag(element) === 'legend' &&
     getTag(parent) === 'fieldset' &&
     element.isSameNode(
-      Array.from(parent.children).find(child => getTag(child) === 'legend'),
+      Array.from(parent.children).find((child) => getTag(child) === 'legend'),
     )
   )
 }

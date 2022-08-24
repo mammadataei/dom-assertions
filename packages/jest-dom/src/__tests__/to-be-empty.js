@@ -1,9 +1,9 @@
-import {render} from './helpers/test-utils'
+import { render } from './helpers/test-utils'
 
 test('.toBeEmpty', () => {
   // @deprecated intentionally hiding warnings for test clarity
-  const spy = jest.spyOn(console, 'warn').mockImplementation(() => {})
-  const {queryByTestId} = render(`
+  const spy = jest.spyOn(console, 'warn').mockImplementation(() => null)
+  const { queryByTestId } = render(`
     <span data-testid="not-empty">
         <span data-testid="empty"></span>
         <svg data-testid="svg-empty"></svg>
@@ -13,7 +13,7 @@ test('.toBeEmpty', () => {
   const notEmpty = queryByTestId('not-empty')
   const svgEmpty = queryByTestId('svg-empty')
   const nonExistantElement = queryByTestId('not-exists')
-  const fakeElement = {thisIsNot: 'an html element'}
+  const fakeElement = { thisIsNot: 'an html element' }
 
   expect(empty).toBeEmpty()
   expect(svgEmpty).toBeEmpty()

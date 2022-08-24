@@ -1,4 +1,4 @@
-import {checkHtmlElement, getMessage, normalize} from './utils'
+import { checkHtmlElement, getMessage, normalize } from './utils'
 
 // See aria-errormessage spec https://www.w3.org/TR/wai-aria-1.2/#aria-errormessage
 export function toHaveErrorMessage(htmlElement, checkWith) {
@@ -37,11 +37,11 @@ export function toHaveErrorMessage(htmlElement, checkWith) {
     const document = htmlElement.ownerDocument
 
     const errormessageEls = errormessageIDs
-      .map(errormessageID => document.getElementById(errormessageID))
+      .map((errormessageID) => document.getElementById(errormessageID))
       .filter(Boolean)
 
     errormessage = normalize(
-      errormessageEls.map(el => el.textContent).join(' '),
+      errormessageEls.map((el) => el.textContent).join(' '),
     )
   }
 
