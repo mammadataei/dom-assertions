@@ -1,0 +1,54 @@
+{
+  "name": "@dom-assertions/cypress-dom",
+  "version": "0.1.0",
+  "description": "Cypress assertions for testing DOM elements",
+  "author": "Mohammad Ataei <mammadataei@gmail.com>",
+  "license": "MIT",
+  "main": "dist/index.cjs",
+  "module": "dist/index.mjs",
+  "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "require": "./dist/index.cjs",
+      "import": "./dist/index.mjs",
+      "types": "./dist/index.d.ts"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsc && unbuild",
+    "cypress": "cypress open",
+    "test": "cypress run --component",
+    "test:coverage": "echo 'Skipping coverage'",
+    "format": "prettier --write .",
+    "lint": "eslint --ext .js,.jsx,.ts,.tsx ."
+  },
+  "devDependencies": {
+    "@testing-library/cypress": "^8.0.3",
+    "@types/react": "^18.0.15",
+    "@types/react-dom": "^18.0.6",
+    "@vitejs/plugin-react": "^1.3.2",
+    "cypress": "^10.3.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "keywords": [
+    "testing",
+    "dom",
+    "cypress",
+    "cypress-dom",
+    "assertions",
+    "accessible",
+    "accessibility"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mammadataei/dom-assertions/",
+    "directory": "packages/cypress-dom"
+  },
+  "bugs": {
+    "url": "https://github.com/mammadataei/dom-assertions/issues"
+  }
+}

@@ -1,6 +1,8 @@
 node_modules
 coverage
 dist
+videos
+screenshots
 
 .DS_Store
 .idea
