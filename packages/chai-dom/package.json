@@ -1,0 +1,45 @@
+{
+  "name": "@dom-assertions/chai-dom",
+  "version": "0.1.0",
+  "description": "Chai assertions for testing DOM elements",
+  "author": "Mohammad Ataei <mammadataei@gmail.com>",
+  "license": "MIT",
+  "main": "dist/index.cjs",
+  "module": "dist/index.mjs",
+  "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "require": "./dist/index.cjs",
+      "import": "./dist/index.mjs",
+      "types": "./dist/index.d.ts"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsc && unbuild",
+    "test": "vitest",
+    "test:coverage": "vitest run --coverage",
+    "format": "prettier --write .",
+    "lint": "eslint --ext .js,.jsx,.ts,.tsx ."
+  },
+  "keywords": [
+    "testing",
+    "dom",
+    "chai",
+    "chai-dom",
+    "assertions",
+    "accessible",
+    "accessibility"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mammadataei/dom-assertions/",
+    "directory": "packages/chai-dom"
+  },
+  "bugs": {
+    "url": "https://github.com/mammadataei/dom-assertions/issues"
+  }
+
+}
