@@ -5,6 +5,10 @@
   "license": "MIT",
   "author": "Mohammad Ataei <mammadataei@gmail.com>",
   "scripts": {
+    "dom-assertions": "pnpm --filter dom-assertions",
+    "chai-dom": "pnpm --filter chai-dom",
+    "cypress-dom": "pnpm --filter cypress-dom",
+    "jest-dom": "pnpm --filter jest-dom",
     "build": "pnpm -r build",
     "test": "pnpm -r --workspace-concurrency 1 test:run",
     "test:coverage": "pnpm -r test:coverage",
