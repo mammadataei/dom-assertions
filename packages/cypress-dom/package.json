@@ -21,6 +21,7 @@
     "build": "tsc && unbuild",
     "cypress": "cypress open",
     "test": "cypress run --component",
+    "test:run": "pnpm test",
     "test:coverage": "echo 'Skipping coverage'",
     "format": "prettier --write .",
     "lint": "eslint --ext .js,.jsx,.ts,.tsx ."

@@ -6,7 +6,7 @@
   "author": "Mohammad Ataei <mammadataei@gmail.com>",
   "scripts": {
     "build": "pnpm -r build",
-    "test": "pnpm -r test",
+    "test": "pnpm -r --workspace-concurrency 1 test:run",
     "test:coverage": "pnpm -r test:coverage",
     "format": "prettier --write .",
     "lint": "eslint --ext .js,.jsx,.ts,.tsx .",
