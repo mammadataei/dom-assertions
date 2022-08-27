@@ -223,6 +223,20 @@ function toSentence(
   )
 }
 
+function resolveAsymmetricStringMatchingValue(value) {
+  if (typeof value === 'object') {
+    if (value.constructor.name === 'StringContaining') {
+      return new RegExp(value.sample)
+    }
+
+    if (value.constructor.name === 'StringMatching') {
+      return value.sample
+    }
+  }
+
+  return value
+}
+
 export {
   HtmlElementTypeError,
   NodeTypeError,
@@ -237,4 +251,5 @@ export {
   getSingleElementValue,
   compareArraysAsSet,
   toSentence,
+  resolveAsymmetricStringMatchingValue,
 }
