@@ -1,5 +1,5 @@
-export {}
+import * as exports from './'
 
-it('should work', () => {
-  expect(true).to.be.true
+it('should export correct assertions', () => {
+  expect(Object.keys(exports)).toEqual(['assertElementHasDescription'])
 })
