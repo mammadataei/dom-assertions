@@ -33,6 +33,7 @@
   "license": "MIT",
   "dependencies": {
     "@babel/runtime": "^7.9.2",
+    "dom-assertions": "workspace:*",
     "@types/testing-library__jest-dom": "^5.9.1",
     "aria-query": "^5.0.0",
     "chalk": "^3.0.0",

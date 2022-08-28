@@ -39,5 +39,8 @@
   },
   "bugs": {
     "url": "https://github.com/mammadataei/dom-assertions/issues"
+  },
+  "dependencies": {
+    "dom-accessibility-api": "^0.5.14"
   }
 }

@@ -1,28 +1,14 @@
-import { computeAccessibleDescription } from 'dom-accessibility-api'
-import { checkHtmlElement, getMessage } from './utils'
+import { assertElementHasDescription } from 'dom-assertions'
+import { getMessage, resolveAsymmetricStringMatchingValue } from './utils'
 
 export function toHaveAccessibleDescription(
   htmlElement,
   expectedAccessibleDescription,
 ) {
-  checkHtmlElement(htmlElement, toHaveAccessibleDescription, this)
-  const actualAccessibleDescription = computeAccessibleDescription(htmlElement)
-  const missingExpectedValue = arguments.length === 1
-
-  let pass = false
-  if (missingExpectedValue) {
-    // When called without an expected value we only want to validate that the element has an
-    // accessible description, whatever it may be.
-    pass = actualAccessibleDescription !== ''
-  } else {
-    pass =
-      expectedAccessibleDescription instanceof RegExp
-        ? expectedAccessibleDescription.test(actualAccessibleDescription)
-        : this.equals(
-            actualAccessibleDescription,
-            expectedAccessibleDescription,
-          )
-  }
+  const { pass, received } = assertElementHasDescription(
+    htmlElement,
+    resolveAsymmetricStringMatchingValue(expectedAccessibleDescription),
+  )
 
   return {
     pass,
@@ -39,7 +25,7 @@ export function toHaveAccessibleDescription(
         `Expected element ${to} have accessible description`,
         expectedAccessibleDescription,
         'Received',
-        actualAccessibleDescription,
+        received,
       )
     },
   }
