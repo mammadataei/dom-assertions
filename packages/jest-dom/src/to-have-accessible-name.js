@@ -1,22 +1,11 @@
-import { computeAccessibleName } from 'dom-accessibility-api'
-import { checkHtmlElement, getMessage } from './utils'
+import { assertElementHasName } from 'dom-assertions'
+import { getMessage, resolveAsymmetricStringMatchingValue } from './utils'
 
 export function toHaveAccessibleName(htmlElement, expectedAccessibleName) {
-  checkHtmlElement(htmlElement, toHaveAccessibleName, this)
-  const actualAccessibleName = computeAccessibleName(htmlElement)
-  const missingExpectedValue = arguments.length === 1
-
-  let pass = false
-  if (missingExpectedValue) {
-    // When called without an expected value we only want to validate that the element has an
-    // accessible name, whatever it may be.
-    pass = actualAccessibleName !== ''
-  } else {
-    pass =
-      expectedAccessibleName instanceof RegExp
-        ? expectedAccessibleName.test(actualAccessibleName)
-        : this.equals(actualAccessibleName, expectedAccessibleName)
-  }
+  const { pass, received } = assertElementHasName(
+    htmlElement,
+    resolveAsymmetricStringMatchingValue(expectedAccessibleName),
+  )
 
   return {
     pass,
@@ -33,7 +22,7 @@ export function toHaveAccessibleName(htmlElement, expectedAccessibleName) {
         `Expected element ${to} have accessible name`,
         expectedAccessibleName,
         'Received',
-        actualAccessibleName,
+        received,
       )
     },
   }
