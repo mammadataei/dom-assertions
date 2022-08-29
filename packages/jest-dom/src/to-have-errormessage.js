@@ -1,58 +1,17 @@
-import { checkHtmlElement, getMessage, normalize } from './utils'
+import { assertElementHasErrorMessage } from 'dom-assertions'
+import { getMessage, resolveAsymmetricStringMatchingValue } from './utils'
 
 // See aria-errormessage spec https://www.w3.org/TR/wai-aria-1.2/#aria-errormessage
 export function toHaveErrorMessage(htmlElement, checkWith) {
-  checkHtmlElement(htmlElement, toHaveErrorMessage, this)
-
-  if (
-    !htmlElement.hasAttribute('aria-invalid') ||
-    htmlElement.getAttribute('aria-invalid') === 'false'
-  ) {
-    const not = this.isNot ? '.not' : ''
-
-    return {
-      pass: false,
-      message: () => {
-        return getMessage(
-          this,
-          this.utils.matcherHint(`${not}.toHaveErrorMessage`, 'element', ''),
-          `Expected the element to have invalid state indicated by`,
-          'aria-invalid="true"',
-          'Received',
-          htmlElement.hasAttribute('aria-invalid')
-            ? `aria-invalid="${htmlElement.getAttribute('aria-invalid')}"`
-            : this.utils.printReceived(''),
-        )
-      },
-    }
-  }
-
-  const expectsErrorMessage = checkWith !== undefined
-
-  const errormessageIDRaw = htmlElement.getAttribute('aria-errormessage') || ''
-  const errormessageIDs = errormessageIDRaw.split(/\s+/).filter(Boolean)
-
-  let errormessage = ''
-  if (errormessageIDs.length > 0) {
-    const document = htmlElement.ownerDocument
-
-    const errormessageEls = errormessageIDs
-      .map((errormessageID) => document.getElementById(errormessageID))
-      .filter(Boolean)
-
-    errormessage = normalize(
-      errormessageEls.map((el) => el.textContent).join(' '),
+  const { pass, message, negatedMessage, expected, received } =
+    assertElementHasErrorMessage(
+      htmlElement,
+      resolveAsymmetricStringMatchingValue(checkWith),
     )
-  }
-
   return {
-    pass: expectsErrorMessage
-      ? checkWith instanceof RegExp
-        ? checkWith.test(errormessage)
-        : this.equals(errormessage, checkWith)
-      : Boolean(errormessage),
+    pass,
+
     message: () => {
-      const to = this.isNot ? 'not to' : 'to'
       return getMessage(
         this,
         this.utils.matcherHint(
@@ -60,10 +19,10 @@ export function toHaveErrorMessage(htmlElement, checkWith) {
           'element',
           '',
         ),
-        `Expected the element ${to} have error message`,
-        this.utils.printExpected(checkWith),
+        this.isNot ? negatedMessage : message,
+        this.utils.printExpected(expected),
         'Received',
-        this.utils.printReceived(errormessage),
+        this.utils.printReceived(received),
       )
     },
   }
