@@ -1,3 +1,4 @@
+import { assertElementIsInvalid } from 'dom-assertions'
 import { checkHtmlElement, getTag } from './utils'
 
 const FORM_TAGS = ['form', 'input', 'select', 'textarea']
@@ -23,14 +24,12 @@ function isElementInvalid(element) {
 }
 
 export function toBeInvalid(element) {
-  checkHtmlElement(element, toBeInvalid, this)
-
-  const isInvalid = isElementInvalid(element)
+  const { pass } = assertElementIsInvalid(element)
 
   return {
-    pass: isInvalid,
+    pass,
     message: () => {
-      const is = isInvalid ? 'is' : 'is not'
+      const is = pass ? 'is' : 'is not'
       return [
         this.utils.matcherHint(
           `${this.isNot ? '.not' : ''}.toBeInvalid`,
