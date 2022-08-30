@@ -65,9 +65,14 @@ importers:
 
   packages/dom-assertions:
     specifiers:
+      '@types/aria-query': ^5.0.0
+      aria-query: ^5.0.0
       dom-accessibility-api: ^0.5.14
     dependencies:
+      aria-query: 5.0.0
       dom-accessibility-api: 0.5.14
+    devDependencies:
+      '@types/aria-query': 5.0.0
 
   packages/jest-dom:
     specifiers:
@@ -2358,6 +2363,10 @@ packages:
 
   /@types/aria-query/4.2.2:
     resolution: {integrity: sha512-HnYpAE1Y6kRyKM/XkEuiRQhTHvkzMBurTHnpFLYLBGPIylZNPs9jJcuOOYWxPLJCSEtmZT0Y8rHDokKN7rRTig==}
+    dev: true
+
+  /@types/aria-query/5.0.0:
+    resolution: {integrity: sha512-P+dkdFu0n08PDIvw+9nT9ByQnd+Udc8DaWPb9HKfaPwCvWvQpC5XaMRx2xLWECm9x1VKNps6vEAlirjA6+uNrQ==}
     dev: true
 
   /@types/babel__core/7.1.19:

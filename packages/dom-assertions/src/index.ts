@@ -1,6 +1,7 @@
 export * from './assertElementHasDescription/assertElementHasDescription'
 export * from './assertElementHasErrorMessage/assertElementHasErrorMessage'
 export * from './assertElementHasName/assertElementHasName'
+export * from './assertElementIsChecked/assertElementIsChecked'
 export * from './assertElementIsInvalid/assertElementIsInvalid'
 export * from './assertElementIsRequired/assertElementIsRequired'
 export * from './assertElementIsValid/assertElementIsValid'

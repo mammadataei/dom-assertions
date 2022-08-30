@@ -41,6 +41,10 @@
     "url": "https://github.com/mammadataei/dom-assertions/issues"
   },
   "dependencies": {
+    "aria-query": "^5.0.0",
     "dom-accessibility-api": "^0.5.14"
+  },
+  "devDependencies": {
+    "@types/aria-query": "^5.0.0"
   }
 }

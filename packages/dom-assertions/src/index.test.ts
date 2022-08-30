@@ -5,6 +5,7 @@ it('should export correct assertions', () => {
     'assertElementHasDescription',
     'assertElementHasErrorMessage',
     'assertElementHasName',
+    'assertElementIsChecked',
     'assertElementIsInvalid',
     'assertElementIsRequired',
     'assertElementIsValid',

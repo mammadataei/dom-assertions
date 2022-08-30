@@ -169,7 +169,7 @@ describe('.toBeChecked', () => {
     expect(() =>
       expect(queryByTestId('aria-checkbox-invalid')).toBeChecked(),
     ).toThrowError(
-      /only inputs with .* a valid aria-checked attribute can be used/,
+      /Only inputs with .* a valid "aria-checked" attribute can be asserted/,
     )
   })
 
@@ -181,7 +181,7 @@ describe('.toBeChecked', () => {
     expect(() =>
       expect(queryByTestId('aria-radio-invalid')).toBeChecked(),
     ).toThrowError(
-      /only inputs with .* a valid aria-checked attribute can be used/,
+      /Only inputs with .* a valid "aria-checked" attribute can be asserted/,
     )
   })
 
@@ -193,14 +193,14 @@ describe('.toBeChecked', () => {
     expect(() =>
       expect(queryByTestId('aria-switch-invalid')).toBeChecked(),
     ).toThrowError(
-      /only inputs with .* a valid aria-checked attribute can be used/,
+      /Only inputs with .* a valid "aria-checked" attribute can be asserted/,
     )
   })
 
   test('throws when the element is not an input', () => {
     const { queryByTestId } = render(`<select data-testid="select"></select>`)
     expect(() => expect(queryByTestId('select')).toBeChecked()).toThrowError(
-      /only inputs with type="checkbox" or type="radio" or elements with.* role="checkbox".* role="menuitemcheckbox".* role="radio".* role="switch" .* can be used/,
+      /Only inputs with type="checkbox" or type="radio", or elements with.* role="checkbox".* role="menuitemcheckbox".* role="radio".* role="switch" .* can be asserted/,
     )
   })
 })

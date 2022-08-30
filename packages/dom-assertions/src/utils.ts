@@ -9,3 +9,12 @@ export function normalize(text: string) {
 export function getElementTagName(element: Element) {
   return element.tagName && element.tagName.toLowerCase()
 }
+
+export function toSentence(
+  array: Array<string>,
+  { wordConnector = ', ', lastWordConnector = ' and ' } = {},
+) {
+  return [array.slice(0, -1).join(wordConnector), array[array.length - 1]].join(
+    array.length > 1 ? lastWordConnector : '',
+  )
+}
