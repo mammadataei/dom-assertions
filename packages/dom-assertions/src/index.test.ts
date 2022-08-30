@@ -7,5 +7,6 @@ it('should export correct assertions', () => {
     'assertElementHasName',
     'assertElementIsInvalid',
     'assertElementIsRequired',
+    'assertElementIsValid',
   ])
 })

@@ -1,27 +1,4 @@
-import { assertElementIsInvalid } from 'dom-assertions'
-import { checkHtmlElement, getTag } from './utils'
-
-const FORM_TAGS = ['form', 'input', 'select', 'textarea']
-
-function isElementHavingAriaInvalid(element) {
-  return (
-    element.hasAttribute('aria-invalid') &&
-    element.getAttribute('aria-invalid') !== 'false'
-  )
-}
-
-function isSupportsValidityMethod(element) {
-  return FORM_TAGS.includes(getTag(element))
-}
-
-function isElementInvalid(element) {
-  const isHaveAriaInvalid = isElementHavingAriaInvalid(element)
-  if (isSupportsValidityMethod(element)) {
-    return isHaveAriaInvalid || !element.checkValidity()
-  } else {
-    return isHaveAriaInvalid
-  }
-}
+import { assertElementIsInvalid, assertElementIsValid } from 'dom-assertions'
 
 export function toBeInvalid(element) {
   const { pass } = assertElementIsInvalid(element)
@@ -45,14 +22,12 @@ export function toBeInvalid(element) {
 }
 
 export function toBeValid(element) {
-  checkHtmlElement(element, toBeValid, this)
-
-  const isValid = !isElementInvalid(element)
+  const { pass } = assertElementIsValid(element)
 
   return {
-    pass: isValid,
+    pass,
     message: () => {
-      const is = isValid ? 'is' : 'is not'
+      const is = pass ? 'is' : 'is not'
       return [
         this.utils.matcherHint(
           `${this.isNot ? '.not' : ''}.toBeValid`,
