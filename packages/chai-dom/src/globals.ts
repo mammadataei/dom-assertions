@@ -11,6 +11,17 @@ declare global {
       description(expectedDescription?: string | RegExp): void
 
       /**
+       * Asserts that the given element has any/expected accessible name
+       * @see https://w3c.github.io/accname/
+       * @param expected (optional) expected name
+       * @example
+       *  expect($element).to.have.name()
+       *  expect($element).to.have.name('expected name')
+       */
+
+      name(expected?: string | RegExp): void
+
+      /**
        * Asserts that the given element is required
        * @example
        *  expect($element).to.be.required
