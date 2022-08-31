@@ -25,6 +25,9 @@
     "format": "prettier --write .",
     "lint": "eslint --ext .js,.jsx,.ts,.tsx ."
   },
+  "dependencies": {
+    "dom-assertions": "workspace:*"
+  },
   "keywords": [
     "testing",
     "dom",
@@ -42,5 +45,4 @@
   "bugs": {
     "url": "https://github.com/mammadataei/dom-assertions/issues"
   }
-
 }

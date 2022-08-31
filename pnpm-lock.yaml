@@ -43,7 +43,10 @@ importers:
       vitest: 0.16.0_wdnzb2oadfvbcizribzdowrari
 
   packages/chai-dom:
-    specifiers: {}
+    specifiers:
+      dom-assertions: workspace:*
+    dependencies:
+      dom-assertions: link:../dom-assertions
 
   packages/cypress-dom:
     specifiers:
