@@ -9,6 +9,14 @@ declare global {
        *  expect($element).to.have.description('expected value')
        */
       description(expectedDescription?: string | RegExp): void
+
+      /**
+       * Asserts that the given element is required
+       * @example
+       *  expect($element).to.be.required
+       *  expect($element).not.to.be.required
+       */
+      required: Assertion
     }
   }
 }
