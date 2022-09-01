@@ -2,6 +2,14 @@ declare global {
   namespace Chai {
     interface Assertion {
       /**
+       * Asserts that the given element is checked
+       * @example
+       *  expect($element).to.be.checked
+       *  expect($element).not.to.be.checked
+       */
+      checked: Assertion
+
+      /**
        * Chai assertion that checks if a given element has accessible description
        * @param expectedDescription (optional) expected description
        * @example
