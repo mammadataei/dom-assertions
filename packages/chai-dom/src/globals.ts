@@ -45,6 +45,14 @@ declare global {
        *  expect($element).not.to.be.required
        */
       required: Assertion
+
+      /**
+       * Asserts that the given element is valid
+       * @example
+       *  expect($element).to.be.valid
+       *  expect($element).not.to.be.valid
+       */
+      valid: Assertion
     }
   }
 }
