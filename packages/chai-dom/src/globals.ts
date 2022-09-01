@@ -20,6 +20,14 @@ declare global {
       errorMessage(expected?: string | RegExp): void
 
       /**
+       * Asserts that the given element is invalid
+       * @example
+       *  expect($element).to.be.invalid
+       *  expect($element).not.to.be.invalid
+       */
+      invalid: Assertion
+
+      /**
        * Asserts that the given element has any/expected accessible name
        * @see https://w3c.github.io/accname/
        * @param expected (optional) expected name
