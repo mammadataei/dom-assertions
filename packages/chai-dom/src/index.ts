@@ -1,5 +1,4 @@
-import { AssertionMethods } from './AssertionMethods'
-import { AssertionProperties } from './AssertionProperties'
+import { AssertionMethods, AssertionProperties } from './assertions'
 
 import './globals'
 
