@@ -44,6 +44,32 @@ declare global {
       ): Chainable<Subject>
 
       /**
+       * Asserts that the given element has any/expected error message
+       * @param chainer
+       * @param expected (optional) expected error message
+       * @example
+       *  cy.get('#id').should('not.have.errorMessage')
+       *  cy.get('#id').should('not.have.errorMessage', 'expected error message')
+       */
+      (
+        chainer: 'have.errorMessage',
+        expected?: string | RegExp,
+      ): Chainable<Subject>
+
+      /**
+       * Asserts that the given element doesn't have any/expected error message
+       * @param chainer
+       * @param expected (optional) expected error message
+       * @example
+       *  cy.get('#id').should('not.have.errorMessage')
+       *  cy.get('#id').should('not.have.errorMessage', 'expected error message')
+       */
+      (
+        chainer: 'not.have.errorMessage',
+        expected?: string | RegExp,
+      ): Chainable<Subject>
+
+      /**
        * Asserts that the given element has any/expected name
        * @param chainer
        * @param expected () expected name
