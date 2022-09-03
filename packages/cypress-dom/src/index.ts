@@ -1,6 +1,7 @@
-import { AssertionMethods } from '@dom-assertions/chai-dom'
-import { registerAssertionMethods } from './utils'
+import { AssertionMethods, AssertionProperties } from '@dom-assertions/chai-dom'
+import { registerAssertions } from './utils'
 
 import './globals'
 
-registerAssertionMethods(AssertionMethods)
+registerAssertions(AssertionMethods)
+registerAssertions(AssertionProperties, 'property')
