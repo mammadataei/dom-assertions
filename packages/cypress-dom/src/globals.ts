@@ -42,6 +42,26 @@ declare global {
         chainer: 'not.have.description',
         expected?: string | RegExp,
       ): Chainable<Subject>
+
+      /**
+       * Asserts that the given element has any/expected name
+       * @param chainer
+       * @param expected () expected name
+       * @example
+       *  cy.get('#id').should('have.name')
+       *  cy.get('#id').should('have.name', 'expected name')
+       */
+      (chainer: 'have.name', expected?: string | RegExp): Chainable<Subject>
+
+      /**
+       * Asserts that the given element doesn't have any/expected name
+       * @param chainer
+       * @param expected (optional) expected name
+       * @example
+       *  cy.get('#id').should('not.have.name')
+       *  cy.get('#id').should('not.have.name', 'expected name')
+       */
+      (chainer: 'not.have.name', expected?: string | RegExp): Chainable<Subject>
     }
   }
 }
