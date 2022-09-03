@@ -26,6 +26,9 @@
     "format": "prettier --write .",
     "lint": "eslint --ext .js,.jsx,.ts,.tsx ."
   },
+  "dependencies": {
+    "@dom-assertions/chai-dom": "workspace:*"
+  },
   "devDependencies": {
     "@testing-library/cypress": "^8.0.3",
     "@types/react": "^18.0.15",

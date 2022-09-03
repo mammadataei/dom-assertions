@@ -50,6 +50,7 @@ importers:
 
   packages/cypress-dom:
     specifiers:
+      '@dom-assertions/chai-dom': workspace:*
       '@testing-library/cypress': ^8.0.3
       '@types/react': ^18.0.15
       '@types/react-dom': ^18.0.6
@@ -57,6 +58,8 @@ importers:
       cypress: ^10.3.0
       react: ^18.2.0
       react-dom: ^18.2.0
+    dependencies:
+      '@dom-assertions/chai-dom': link:../chai-dom
     devDependencies:
       '@testing-library/cypress': 8.0.3_cypress@10.6.0
       '@types/react': 18.0.17
