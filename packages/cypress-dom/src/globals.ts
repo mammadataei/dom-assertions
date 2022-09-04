@@ -34,6 +34,22 @@ declare global {
       (chainer: 'not.be.required'): Chainable<Subject>
 
       /**
+       * Asserts that the given element is valid
+       * @param chainer
+       * @example
+       *  cy.get('#id').should('be.valid')
+       */
+      (chainer: 'be.valid'): Chainable<Subject>
+
+      /**
+       * Asserts that the given element is not valid
+       * @param chainer
+       * @example
+       *  cy.get('#id').should('not.be.valid')
+       */
+      (chainer: 'not.be.valid'): Chainable<Subject>
+
+      /**
        * Assert that the given element has any/expected description
        * @param chainer
        * @param expected (optional) expected description
