@@ -2,6 +2,22 @@ declare global {
   namespace Cypress {
     interface Chainer<Subject> {
       /**
+       * Asserts that the given element is invalid
+       * @param chainer
+       * @example
+       *  cy.get('#id').should('be.invalid')
+       */
+      (chainer: 'be.invalid'): Chainable<Subject>
+
+      /**
+       * Asserts that the given element is not invalid
+       * @param chainer
+       * @example
+       *  cy.get('#id').should('not.be.invalid')
+       */
+      (chainer: 'not.be.invalid'): Chainable<Subject>
+
+      /**
        * Asserts that the given element is required
        * @param chainer
        * @example
