@@ -1,9 +1,10 @@
 import { AssertionFunction, ChaiPlugin } from './types'
 
-export function map<InputObject, Keys extends keyof InputObject, MappedValue>(
-  obj: InputObject,
-  callback: (key: Keys, value: any) => MappedValue,
-) {
+export function map<
+  InputObject extends Record<string, unknown>,
+  Keys extends keyof InputObject,
+  MappedValue,
+>(obj: InputObject, callback: (key: Keys, value: any) => MappedValue) {
   return Object.fromEntries(
     Object.entries(obj).map(([key, value]) => [
       key,
