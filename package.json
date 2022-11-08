@@ -37,7 +37,7 @@
     "lint-staged": "^13.0.3",
     "prettier": "2.7.1",
     "typescript": "^4.8.3",
-    "unbuild": "^0.8.11",
+    "unbuild": "^0.9.0",
     "vite": "^2.9.15",
     "vitest": "^0.25.0"
   }
