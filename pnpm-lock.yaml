@@ -91,7 +91,7 @@ importers:
       dom-assertions: workspace:*
       jest-environment-jsdom-sixteen: ^1.0.3
       jest-watch-select-projects: ^2.0.0
-      jsdom: ^16.2.1
+      jsdom: ^20.0.0
       kcd-scripts: ^11.1.0
       lodash: ^4.17.15
       pretty-format: ^25.1.0
@@ -109,7 +109,7 @@ importers:
     devDependencies:
       jest-environment-jsdom-sixteen: 1.0.3
       jest-watch-select-projects: 2.0.0
-      jsdom: 16.7.0
+      jsdom: 20.0.0
       kcd-scripts: 11.2.2
       pretty-format: 25.5.0
 
@@ -7774,11 +7774,11 @@ packages:
       http-proxy-agent: 4.0.1
       https-proxy-agent: 5.0.1
       is-potential-custom-element-name: 1.0.1
-      nwsapi: 2.2.1
+      nwsapi: 2.2.2
       parse5: 6.0.1
       saxes: 5.0.1
       symbol-tree: 3.2.4
-      tough-cookie: 4.1.0
+      tough-cookie: 4.1.2
       w3c-hr-time: 1.0.2
       w3c-xmlserializer: 2.0.0
       webidl-conversions: 6.1.0
@@ -8856,10 +8856,6 @@ packages:
     engines: {node: ^12.20.0 || ^14.13.1 || >=16.0.0}
     dependencies:
       path-key: 4.0.0
-    dev: true
-
-  /nwsapi/2.2.1:
-    resolution: {integrity: sha512-JYOWTeFoS0Z93587vRJgASD5Ut11fYl5NyihP3KrYBvMe1FRRs6RN7m20SA/16GM4P6hTnZjT+UmDOt38UeXNg==}
     dev: true
 
   /nwsapi/2.2.2:
@@ -10586,16 +10582,6 @@ packages:
       punycode: 2.1.1
     dev: true
 
-  /tough-cookie/4.1.0:
-    resolution: {integrity: sha512-IVX6AagLelGwl6F0E+hoRpXzuD192cZhAcmT7/eoLr0PnsB1wv2E5c+A2O+V8xth9FlL2p0OstFsWn0bZpVn4w==}
-    engines: {node: '>=6'}
-    dependencies:
-      psl: 1.9.0
-      punycode: 2.1.1
-      universalify: 0.2.0
-      url-parse: 1.5.10
-    dev: true
-
   /tough-cookie/4.1.2:
     resolution: {integrity: sha512-G9fqXWoYFZgTc2z8Q5zaHy/vJMjm+WV0AkAeHxVCQiEB1b+dGvWzFW6QV07cY5jQ5gRkeid2qIkzkxUnmoQZUQ==}
     engines: {node: '>=6'}
@@ -11112,6 +11098,7 @@ packages:
 
   /w3c-hr-time/1.0.2:
     resolution: {integrity: sha512-z8P5DvDNjKDoFIHK7q8r8lackT6l+jo/Ye3HOle7l9nICP9lf1Ci25fy9vHd0JOWewkIFzXIEig3TdKT7JQ5fQ==}
+    deprecated: Use your platform's native performance.now() and performance.timeOrigin.
     dependencies:
       browser-process-hrtime: 1.0.0
     dev: true
