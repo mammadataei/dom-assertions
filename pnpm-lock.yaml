@@ -17,7 +17,7 @@ importers:
       husky: ^8.0.1
       jsdom: ^20.0.0
       lint-staged: ^13.0.3
-      prettier: 2.7.1
+      prettier: 2.8.1
       typescript: ^4.8.3
       unbuild: ^0.9.0
       vite: ^3.0.0
@@ -36,7 +36,7 @@ importers:
       husky: 8.0.1
       jsdom: 20.0.0
       lint-staged: 13.0.3
-      prettier: 2.7.1
+      prettier: 2.8.1
       typescript: 4.8.3
       unbuild: 0.9.4
       vite: 3.2.3_@types+node@18.7.18
@@ -9607,8 +9607,8 @@ packages:
     hasBin: true
     dev: true
 
-  /prettier/2.7.1:
-    resolution: {integrity: sha512-ujppO+MkdPqoVINuDFDRLClm7D78qbDt0/NR+wp5FqEZOoTNAjPHWj17QRhu7geIHJfcNhRk1XVQmF8Bp3ye+g==}
+  /prettier/2.8.1:
+    resolution: {integrity: sha512-lqGoSJBQNJidqCHE80vqZJHWHRFoNYsSpP9AjFhlhi9ODCJA541svILes/+/1GM3VaL/abZi7cpFzOpdR9UPKg==}
     engines: {node: '>=10.13.0'}
     hasBin: true
     dev: true
