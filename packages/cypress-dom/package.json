@@ -30,7 +30,7 @@
     "@dom-assertions/chai-dom": "workspace:*"
   },
   "devDependencies": {
-    "@testing-library/cypress": "^8.0.3",
+    "@testing-library/cypress": "^9.0.0",
     "@types/react": "^18.0.15",
     "@types/react-dom": "^18.0.6",
     "@vitejs/plugin-react": "^3.0.0",
