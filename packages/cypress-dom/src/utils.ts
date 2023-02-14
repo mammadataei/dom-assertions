@@ -17,12 +17,13 @@ export function registerAssertions(
 
 function createAssertion(this: Chai.AssertionStatic, ...args: any) {
   return function (this: Chai.AssertionStatic) {
-    const [_super, ...rest] = args
+    const [_super] = args
 
     // cypress elements are wrapped in a jquery object,
     // so we need to unwrap them before handing to chai.
     this._obj = unwrapElement(this)
-    _super.apply(this, ...rest)
+    // eslint-disable-next-line prefer-rest-params
+    _super.apply(this, arguments)
   }
 }
 
