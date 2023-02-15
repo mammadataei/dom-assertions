@@ -19,11 +19,28 @@ it('asserts element has error message', () => {
     'have.errorMessage',
     'Password must be at least 8 characters',
   )
+  cy.get('@input').should('not.have.errorMessage', 'Password is required')
 
   cy.get('@input').should(($input) => {
     expect($input).to.have.errorMessage()
     expect($input).to.have.errorMessage(
       'Password must be at least 8 characters',
+    )
+
+    expect($input).not.to.have.errorMessage('Password is required')
+
+    expect(() => {
+      expect($input).not.to.have.errorMessage(
+        'Password must be at least 8 characters',
+      )
+    }).to.throw(
+      'Expected the <input> not to have error message "Password must be at least 8 characters"',
+    )
+
+    expect(() => {
+      expect($input).to.have.errorMessage('Password is required')
+    }).to.throw(
+      'Expected the <input> to have error message "Password is required", but got "Password must be at least 8 characters"',
     )
   })
 })
@@ -48,6 +65,12 @@ it('asserts element does not have error message', () => {
     expect($input).not.to.have.errorMessage()
     expect($input).not.to.have.errorMessage(
       'Password must be at least 8 characters',
+    )
+
+    expect(() => {
+      expect($input).to.have.errorMessage()
+    }).to.throw(
+      'Expected the <input> to be explicitly invalid indicated by "aria-invalid=true", but it wasn\'t.',
     )
   })
 })
