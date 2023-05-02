@@ -91,7 +91,7 @@ importers:
       dom-assertions: workspace:*
       jest-environment-jsdom-sixteen: ^1.0.3
       jest-watch-select-projects: ^2.0.0
-      jsdom: ^16.2.1
+      jsdom: ^20.0.0
       kcd-scripts: ^11.1.0
       lodash: ^4.17.15
       pretty-format: ^25.1.0
@@ -109,7 +109,7 @@ importers:
     devDependencies:
       jest-environment-jsdom-sixteen: 1.0.3
       jest-watch-select-projects: 2.0.0
-      jsdom: 16.7.0
+      jsdom: 20.0.0
       kcd-scripts: 11.2.2
       pretty-format: 25.5.0
 
@@ -8254,7 +8254,7 @@ packages:
         optional: true
     dependencies:
       abab: 2.0.6
-      acorn: 8.8.0
+      acorn: 8.8.1
       acorn-globals: 6.0.0
       cssom: 0.5.0
       cssstyle: 2.3.0
