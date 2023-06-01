@@ -42,7 +42,7 @@
   },
   "dependencies": {
     "aria-query": "^5.0.0",
-    "dom-accessibility-api": "^0.5.14"
+    "dom-accessibility-api": "^0.6.0"
   },
   "devDependencies": {
     "@types/aria-query": "^5.0.0"
