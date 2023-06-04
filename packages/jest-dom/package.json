@@ -36,7 +36,7 @@
     "@babel/runtime": "^7.9.2",
     "@types/testing-library__jest-dom": "^5.9.1",
     "aria-query": "^5.0.0",
-    "chalk": "^3.0.0",
+    "chalk": "^5.0.0",
     "css.escape": "^1.5.1",
     "dom-assertions": "workspace:*",
     "lodash": "^4.17.15",
