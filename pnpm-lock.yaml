@@ -11,7 +11,7 @@ importers:
       '@typescript-eslint/eslint-plugin': ^5.37.0
       '@typescript-eslint/parser': ^5.37.0
       '@vitest/ui': ^0.32.0
-      c8: ^7.12.0
+      c8: ^8.0.0
       eslint: ^8.23.1
       eslint-config-prettier: ^8.5.0
       husky: ^8.0.1
@@ -30,7 +30,7 @@ importers:
       '@typescript-eslint/eslint-plugin': 5.37.0_22c5fnooleyfkzrkkgdmel5kmi
       '@typescript-eslint/parser': 5.37.0_irgkl5vooow2ydyo6aokmferha
       '@vitest/ui': 0.32.0_vitest@0.32.0
-      c8: 7.12.0
+      c8: 8.0.0
       eslint: 8.23.1
       eslint-config-prettier: 8.5.0_eslint@8.23.1
       husky: 8.0.1
@@ -4483,9 +4483,9 @@ packages:
     engines: {node: '>=6'}
     dev: true
 
-  /c8/7.12.0:
-    resolution: {integrity: sha512-CtgQrHOkyxr5koX1wEUmN/5cfDa2ckbHRA4Gy5LAL0zaCFtVWJS5++n+w4/sr2GWGerBxgTjpKeDclk/Qk6W/A==}
-    engines: {node: '>=10.12.0'}
+  /c8/8.0.0:
+    resolution: {integrity: sha512-XHA5vSfCLglAc0Xt8eLBZMv19lgiBSjnb1FLAQgnwkuhJYEonpilhEB4Ea3jPAbm0FhD6VVJrc0z73jPe7JyGQ==}
+    engines: {node: '>=12'}
     hasBin: true
     dependencies:
       '@bcoe/v8-coverage': 0.2.3
