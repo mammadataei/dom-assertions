@@ -73,10 +73,10 @@ importers:
     specifiers:
       '@types/aria-query': ^5.0.0
       aria-query: ^5.0.0
-      dom-accessibility-api: ^0.5.14
+      dom-accessibility-api: ^0.6.0
     dependencies:
       aria-query: 5.0.0
-      dom-accessibility-api: 0.5.14
+      dom-accessibility-api: 0.6.0
     devDependencies:
       '@types/aria-query': 5.0.0
 
@@ -5414,6 +5414,11 @@ packages:
 
   /dom-accessibility-api/0.5.14:
     resolution: {integrity: sha512-NMt+m9zFMPZe0JcY9gN224Qvk6qLIdqex29clBvc/y75ZBX9YA9wNK3frsYvu2DI1xcCIwxwnX+TlsJ2DSOADg==}
+    dev: true
+
+  /dom-accessibility-api/0.6.0:
+    resolution: {integrity: sha512-4DeUx7GKaZ2jjPAOzBRhI2NHoVjt3YcTOj1aibPLdH9zhdrRsm0ZMqo2HzpTS2Iygt3NJEPFODJpOPqPs3dQtQ==}
+    dev: false
 
   /dom-serializer/1.4.1:
     resolution: {integrity: sha512-VHwB3KfrcOOkelEG2ZOfxqLZdfkil8PtJi4P8N2MMXucZq2yLp75ClViUlOVwyoHEDjYU433Aq+5zWP61+RGag==}
